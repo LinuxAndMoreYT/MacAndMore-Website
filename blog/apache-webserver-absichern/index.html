@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wie man Apache 2 absichert und ihn schnell sowie effizient konfiguriert.'><title>Apache Webserver Absichern</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/apache-webserver-absichern/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Apache Webserver Absichern'>
+<meta property='og:description' content='Wie man Apache 2 absichert und ihn schnell sowie effizient konfiguriert.'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/apache-webserver-absichern/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='apache' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='webserver' /><meta property='article:published_time' content='2021-09-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/apache-webserver-absichern/webserver.jpg' />
+<meta name="twitter:title" content="Apache Webserver Absichern">
+<meta name="twitter:description" content="Wie man Apache 2 absichert und ihn schnell sowie effizient konfiguriert."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/apache-webserver-absichern/webserver.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/apache-webserver-absichern/">
+                <img src="/blog/apache-webserver-absichern/webserver_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_800x0_resize_q75_box.jpg"
+                        srcset="/blog/apache-webserver-absichern/webserver_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_800x0_resize_q75_box.jpg 800w, /blog/apache-webserver-absichern/webserver_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="534" 
+                        loading="lazy"
+                        alt="Featured image of post Apache Webserver Absichern" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/apache-webserver-absichern/">Apache Webserver Absichern</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Wie man Apache 2 absichert und ihn schnell sowie effizient konfiguriert.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">11. 09. 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <blockquote>
+<p><strong>Achtung:</strong>
+Dieser Artikel richtet sich aufgrund seiner Komplexität an fortgeschrittene Linux Nutzer und Admins. Da dieser Artikel sehr umfangreich ist, wird es nicht möglich sein, alle Aspekte und schritte bis in das kleinste Detail zu erklären. So empfiehlt es sich bei Bedarf eigene Nachforschungen anzustellen.</p>
+</blockquote>
+<h2 id="was-ist-apache">Was ist Apache?</h2>
+<p>Apache ist eine Software, die auf einem Server ausgeführt wird. Beim Apache-Webserver handelt es sich um eine plattformübergreifende Software, die sowohl auf Unix/Linux wie auch auf Windows Servern ausgeführt werden kann. Seine Aufgabe ist es, eine Verbindung zwischen einem physischen Server mit den gespeicherten Webseiten und den Browsern der Internetuser herzustellen.
+Wenn ein User eine URL in seinen Webbrowser eingibt, sendet der Browser eine HTTP oder HTTPS Anforderung an den Server, auf dem die Webseite gespeichert ist. Der auf dem Server installierte Apacheserver verarbeitet die HTTP oder HTTPS Anforderung und gibt die angeforderten Webseiten zurück.</p>
+<h2 id="unser-ziel">Unser Ziel</h2>
+<p>Apache zählt zu den beliebtesten Webservern und wird so auch in vielen Diensten verwendend. Obwohl Apache standardmäßig gar nicht schlecht konfiguriert ist, geht Inderregel noch mehr und so werden wird alle (sofern einfach zu realisieren) sicherheitsrelevanten Einstellungen treffen.
+Dieses Tutorial kann und sollte je nach Einsatzgebiet abgewandelt werden. Für bspw. ein LAMP Stack mit WordPress oder Nextcloud kann es übernommen werden.</p>
+<p><strong>Ziele dieser Installation:</strong></p>
+<ul>
+<li>DDOS Schutz</li>
+<li>IP-Ban mit Fail2Ban</li>
+<li>IPS/WAF Firewall</li>
+<li>Eingeschränkte Symlinks, Indexes, Includes und ExecCGI</li>
+<li>HTTPS Mit Zertifikat</li>
+<li>Domain IP Check bzw. Rewrite</li>
+</ul>
+<h2 id="benötigte-pakete-installieren">Benötigte Pakete Installieren</h2>
+<p>An Paketen benötigen wir einerseits natürlich Apache und die Apache-Utils welche den Webserver um Standardmodule erweitern. Um dann noch gebrauch von IDS und DDOS Schutz zu machen, benötigen wir die entsprechen Liberas sowie Fail2Ban zum Sperren der IP-Adressen. Um dann noch ein SSL-Zertifikat au unsere Domain zu erheben, verwenden wir das ACME Tool CertBot.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install apache2 apache2-utils certbot iptables python3-certbot-apache fail2ban libapache2-mod-security2 libapache2-mod-evasive -y
+</code></pre></div><h2 id="apache-servermodule-sichern">Apache Servermodule sichern</h2>
+<p>Apache2 bringt selbst eine Konfigurationsdatei mit, in welche wir die Server Signatur, Antworten und Tokens so begrenzen das vereinfacht gesagt der Webserver, dem Nutzer nicht zu viele Informationen über sich mitteilt.
+Diese Informationen enthalten beispielsweise das Betriebssystem oder die Apacheversion. Dies könnte unter Umständen einem Hacker helfen, den Server anzugreifen oder lahmzulegen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/apache2/conf-available/security.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ServerTokens Prod
+ServerSignature Off
+TraceEnable Off
+</code></pre></div><h2 id="mod-security">Mod Security</h2>
+<p>Modsecurity ist eine Open-Source-Webanwendungs-Firewall (WAF). Es bietet eine Reihe von Funktionen zum Filtern von Anfragen und Antworten des Hypertext Transfer Protokoll.
+Mod Security bietet eine Regelkonfigurationssprache namens „SecRules“ für die Echtzeitüberwachung, Protokollierung und Filterung basierend auf benutzerdefinierten Regeln. Es wird industrieweit zum Schutz von Web-Apps und Co eingesetzt und ist daher essenziell.</p>
+<p><figure 
+	>
+	<a href="/blog/apache-webserver-absichern/apache-mod-security.jpg" >
+		<img src="/blog/apache-webserver-absichern/apache-mod-security.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Apache - Mod Security">
+	</a>
+	
+	<figcaption>Apache - Mod Security</figcaption>
+	
+</figure></p>
+<h3 id="konfiguration-laden">Konfiguration Laden</h3>
+<p>Standardmäßig wird eine Beispielkonfiguration ausgeliefert, welche wir ohne Weiteres verwenden könne, da sie meiner Meinung nach sehr gute Standards enthält.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+</code></pre></div><h3 id="fail2ban-einbinden">Fail2Ban Einbinden</h3>
+<p>Fail2Ban ist ein Tool, welches automatisch fehlgeschlagene Anmeldeversuche erkennt und diese je nach Konfiguration mit iptables blockiert. In diesem Fall wird es verwendet, um die durch Mod Security erkannten Angriffe IP basiert zu Blockieren. Sollten euch die vordefinieren Werte zu aggressiv sein, könnt Ihr diese entsprechend anpassen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/fail2ban/jail.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>apache-modsecurity<span class="o">]</span>
+
+<span class="nv">enabled</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">port</span>     <span class="o">=</span> http,https
+<span class="nv">filter</span>   <span class="o">=</span> apache-apache-modsecurity 
+<span class="nv">logpath</span>  <span class="o">=</span> %<span class="o">(</span>apache_error_log<span class="o">)</span>s
+<span class="nv">action</span>   <span class="o">=</span> iptables-multiport<span class="o">[</span><span class="nv">name</span><span class="o">=</span>ModSec, <span class="nv">port</span><span class="o">=</span><span class="s2">&#34;http,https&#34;</span><span class="o">]</span>
+<span class="nv">maxretry</span> <span class="o">=</span> <span class="m">2</span>
+</code></pre></div><h2 id="mod-evasive">Mod Evasive</h2>
+<p>Mod Evasive ist ein Modul, welches ähnlich einem Intrusion Prevention System (IPS) Muster eines möglichen Angriffs im Netzwerk erkennt. Dieses Modul konzentriert sich auf Denial of Service (DoS) über das Protokoll HTTP, DDoS und Brute-Force-Attacken. Erkennt dieses Modul einen Angriff über eine IP-Addresse, so wird diese zeitbegrenzt auf allen Ports gesperrt.</p>
+<p><figure 
+	>
+	<a href="/blog/apache-webserver-absichern/apache-mod-evasive.jpg" >
+		<img src="/blog/apache-webserver-absichern/apache-mod-evasive.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="Apache - Mod Evasive">
+	</a>
+	
+	<figcaption>Apache - Mod Evasive</figcaption>
+	
+</figure></p>
+<h3 id="konfiguration-laden-1">Konfiguration Laden</h3>
+<p>Um die Logdatei von mod_evasive für Apache schreibbar zu machen, muss ein neues Verzeichnis mit entsprechenden Rechten erzeugt werden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir /var/log/mod_evasive
+sudo chown www-data:root /var/log/mod_evasive
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/apache2/mods-enabled/evasive.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">&lt;IfModule mod_evasive20.c&gt; 
+   DOSHashTableSize <span class="m">3097</span> 
+   DOSPageCount <span class="m">10</span>
+   DOSSiteCount <span class="m">50</span> 
+   DOSPageInterval <span class="m">1</span> 
+   DOSSiteInterval <span class="m">1</span> 
+   DOSBlockingPeriod <span class="m">10</span> 
+   DOSLogDir <span class="s2">&#34;/var/log/mod_evasive&#34;</span> 
+&lt;/IfModule&gt;
+</code></pre></div><h3 id="hintergrund-der-konfiguration">Hintergrund der Konfiguration</h3>
+<ul>
+<li><strong>DOSHashTableSize:</strong> Die Größe der HashTable  pro Verbindung. Eine größere HashTable bedeutet eine höhere Geschwindigkeit, jedoch auch mehr RAM-Verbrauch.</li>
+<li><strong>DOSPageCount:</strong> Anzahl der Requests pro Seite innerhalb einer bestimmten Zeit (mit DOSPageInterval festgelegt), nach denen weitere Requests blockiert werden.</li>
+<li><strong>DOSSiteCount:</strong> Anzahl der Requests pro Website innerhalb einer bestimmten Zeit (mit DOSPageInterval festgelegt), nach denen weitere Requests blockiert werden.</li>
+<li><strong>DOSPageInterval:</strong> Zeitraum für den DOSPageCount in Sekunden.</li>
+<li><strong>DOSSiteInterval:</strong> Zeitraum für den DOSSiteCount in Sekunden.</li>
+<li><strong>DOSBlockingPeriod:</strong> Zeitraum für wie lange ein Angreifer blockiert wird, in Sekunden.</li>
+<li><strong>DOSLogDir:</strong> Pfad zur Log-Datei</li>
+<li><strong>DOSEmailNotify:</strong> Mail-Adresse an die ein Hinweis verschickt wird, wenn mod_evasive aktiv werden musste.</li>
+<li><strong>DOSWhitelist:</strong> IP Adresse die ignoriert wird.</li>
+<li><strong>DOSSystemCommand:</strong> Ein Systemkommando, das ausgeführt werden soll. In unserem Fall wird die IP mittels iptables weggeblockt.</li>
+</ul>
+<h3 id="überprüfen-ob-der-mod-läuft">Überprüfen, ob der Mod Läuft</h3>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo apachectl -M <span class="p">|</span> grep evasive
+</code></pre></div><p><strong>Ausgabe:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">evasive20_module <span class="o">(</span>shared<span class="o">)</span>
+</code></pre></div><h3 id="fail2ban-einbinden-1">Fail2Ban Einbinden</h3>
+<p>Fail2Ban ist ein Tool, welches automatisch fehlgeschlagene Anmeldeversuche erkennt und diese je nach Konfiguration mit iptables blockiert. In diesem Fall wird bei zu vielen aufrufen, welche eine DDOS Attacke unserer Seite darstellen könnten eine IP basierte Blockierung durchgeführt. Dies beugt Überlastung oder Abstürze des Webservers vor. Sollten euch die vordefinieren Werte zu aggressiv sein, könnt Ihr diese entsprechend anpassen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/fail2ban/jail.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>apache-auth<span class="o">]</span>
+
+<span class="nv">enabled</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">filter</span>   <span class="o">=</span> apache-auth
+<span class="nv">action</span>   <span class="o">=</span> iptables-multiport<span class="o">[</span><span class="nv">name</span><span class="o">=</span>auth, <span class="nv">port</span><span class="o">=</span><span class="s2">&#34;http,https&#34;</span><span class="o">]</span>
+<span class="nv">maxretry</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nv">logpath</span>  <span class="o">=</span> %<span class="o">(</span>apache_error_log<span class="o">)</span>s
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/fail2ban/filter.d/apache-auth.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">mode</span> <span class="o">=</span> aggressive
+</code></pre></div><h2 id="den-host-korrekt-anlegen">Den Host korrekt anlegen</h2>
+<p>Es ist wichtig, nicht wie in vielen Anleitungen beschreiben, den Standardhost verwenden, sondern für jede auf dem Server gehostete Website und oder Domaine eine eigene Konfiguration (Host) anzulegen. Die unten aufgeführten angaben sollten übernommen werden, um eine einfache Integration in Certbot für HTTPS zu gewährleisten. In der Beispielkonfiguration in solltet Ihr die werte Domain, Server-IP und Ort der Website abändern. Der Standardpfad für Webseiten ist &ldquo;/var/www/MEINEWEBSITE&rdquo;</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/apache2/sites-available/MEINEWEBSITE.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">&lt;VirtualHost *:80&gt;
+     <span class="c1"># Server Host</span>
+     ServerName DOMAIN
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/MEINEWEBSITE/
+      
+     <span class="c1"># Web Files</span>
+     &lt;Directory /var/www/MEINEWEBSITE/&gt;
+        Options -FollowSymlinks -Indexes -Includes -ExecCGI
+        AllowOverride All
+        Require all granted
+     &lt;/Directory&gt;
+
+     <span class="c1"># Optional Error Sites</span>
+     ErrorDocument <span class="m">404</span> /404.html
+     ErrorDocument <span class="m">500</span> /404.html
+     ErrorDocument <span class="m">502</span> /404.html
+     ErrorDocument <span class="m">503</span> /404.html
+     ErrorDocument <span class="m">504</span> /404.html
+
+     <span class="c1"># Limit Requests</span>
+     LimitRequestBody <span class="m">9000</span>
+
+     <span class="c1"># IP Rewrite</span>
+     RewriteEngine on
+     RewriteCond %<span class="o">{</span>SERVER_NAME<span class="o">}</span> IP_HIER
+     RewriteRule /<span class="o">(</span>.*<span class="o">)</span> https://DOMAIN_HIER<span class="nv">$1</span> <span class="o">[</span><span class="nv">R</span><span class="o">=</span>301,L<span class="o">]</span>
+
+     <span class="c1"># Error Log</span>
+     ErrorLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/error.log
+     CustomLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/access.log combined
+
+&lt;/VirtualHost&gt;
+</code></pre></div><h2 id="konfiguration-und-module-aktivieren">Konfiguration und Module Aktivieren</h2>
+<p>Nun müssen noch die ganzen Module initialisiert und der Webserver neu gestartet werden. Im gleichen schritt Aktviren wir unsre erstellte Website und deaktivieren den Mod Status, da dieser nur für eine Testumgebung gedacht ist.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo a2enmod expires
+sudo a2enmod headers
+sudo a2enmod rewrite
+sudo a2enmod evasive
+sudo a2dismod status
+sudo a2ensite MEINEWEBSITE
+sudo systemcrtl restart apache2
+</code></pre></div><h3 id="wichtige-apache-2-befehle">Wichtige Apache 2 Befehle</h3>
+<p>Damit Ihr sicher mit dem Apachewebserver arbeiten könnt, sollten Ihr folgende Befehle kennen.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Befehl</th>
+<th style="text-align:center">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a2enmod</td>
+<td style="text-align:center">Mod Aktivieren</td>
+</tr>
+<tr>
+<td style="text-align:center">a2dismod</td>
+<td style="text-align:center">Mod Deaktivieren</td>
+</tr>
+<tr>
+<td style="text-align:center">a2ensite</td>
+<td style="text-align:center">Seite Aktivieren</td>
+</tr>
+<tr>
+<td style="text-align:center">a2dissite</td>
+<td style="text-align:center">Seite Deaktivieren</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fail2ban-konfiguration-anpassen">Fail2Ban konfiguration anpassen</h2>
+<h3 id="anpassen-der-richtlinien">Anpassen der Richtlinien</h3>
+<p>Standardmäßig sind in alle wichtigen Regeln (Jails) in Fail2Ban schon aktiviert, darunter auch SSH. Um aber nun ein Höchstmaß an Sicherheit zu erreichen, sollte man die Einstellungen zu den Bannaktionen anpassen, sodass sie früher auslösen. Danach wird der Dienst neu gestartet, um die Änderungen zu übernehmen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/fail2ban/jail.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">bantime</span> <span class="o">=</span> 3600m
+<span class="nv">findtime</span> <span class="o">=</span> 360m
+<span class="nv">maxretry</span> <span class="o">=</span> <span class="m">3</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl restart fail2ban.service
+</code></pre></div><h3 id="ip-unbannen">IP Unbannen</h3>
+<p>Falls man versehentlich sich selbst aussperrt, ist es sicherlich gut zu wissen, das Fail2Ban die Möglichkeit bietet, gesperrte IP-Adressen zu entbannen. Dies wird mit dem unten aufgeführten Befehl gemacht und setzt alle mit dieser IP bezogenen Sperrungen zurück..</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo fail2ban-client <span class="nb">set</span> jailname unbanip ip
+</code></pre></div><h2 id="https-und-lets-encrypt">HTTPS und Let’s Encrypt</h2>
+<p>HTTPS bedeutet Hypertext Transfer Protocol Secure und ist ein Protokoll, um Daten sicher zu übertragen. HTTPS Verschlüsselung erhält man durch ein SSL-Zertifikat. Dadurch bietet man dem User einen Schutz vor Hackern und Datendieben.
+Die gemeinnützige Internet Security Research Group (ISRG) bietet bereits seit Ende 2015 mit dem Projekt „Let`s Encrypt“ eine kostenlose Zertifizierungsstelle. Mit dem Linux Tool Certbot können wir automatisch Zertifikate beantragen und diese unterschieben, in die Apache Konfiguration einbetten.</p>
+<h3 id="certbot-konfiguration-anpassen">Certbot Konfiguration anpassen</h3>
+<p>Um sicherzustellen, das immer schlüssel mit der höchsten Sicherheit erstellt werden, verwenden wir eine Konfigurationsdatei, welche diese werte für uns regelt. Ihr könnt den Inhalt übernehmen, müsst jedoch eure E-Mails Adresse eintragen, welche ausschließlich genutzt wird, um euch seitens Let’s Encrypt Zertifikats Benachrichtigungen zuzustellen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/letsencrypt/cli.ini
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Use ECC for the private key</span>
+key-type <span class="o">=</span> ecdsa
+elliptic-curve <span class="o">=</span> secp384r1
+
+<span class="c1"># Use a 4096 bit RSA key instead of 2048</span>
+rsa-key-size <span class="o">=</span> <span class="m">4096</span>
+
+<span class="c1"># Uncomment and update to register with the specified e-mail address</span>
+<span class="nv">email</span> <span class="o">=</span> EMAIL
+
+<span class="c1"># Uncomment to automatically agree to the terms of service of the ACME server</span>
+agree-tos <span class="o">=</span> <span class="nb">true</span>
+</code></pre></div><h3 id="abrufen-eines-ssl-zertifikats">Abrufen eines SSL-Zertifikats</h3>
+<p>Certbot bietet eine Vielzahl von Möglichkeiten, um SSL-Zertifikate über Plugins zu erhalten. Das Apache-Plugin kümmert sich um die Neukonfiguration von Apache und das Neuladen der Konfiguration bei Bedarf. Geben Sie Folgendes ein, um dieses Plugin zu verwenden:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo certbot --apache
+</code></pre></div><p>In diesem Skript muss man eine Reihe von Fragen beantworten, Zunächst werdet Ihr aufgefordert, Certbot darüber zu informieren, für welche Domänen HTTPS aktiviert werden soll. Die aufgelisteten Domänennamen werden automatisch aus der Konfiguration des virtuellen Apache-Hosts abgerufen. Wenn Ihr HTTPS für alle aufgelisteten Domänennamen aktivieren möchtet (empfohlen), können Ihr die Eingabeaufforderung leer lassen und ENTER drücken. Andernfalls wählt man die entsprechende Nummer.
+Nach diesem Schritt ist die Konfiguration von Certbot bereits abgeschlossen und die Website inklusive Weiterleitung über HTTPS erreichbar.</p>
+<h3 id="htst-und-stärkere-verschlüsselung">HTST und stärkere Verschlüsselung</h3>
+<p>Solange der Browser noch versehentlich ungesicherte HTTP-Verbindungen zum Server aufbauen kann besteht die Möglichkeit, dass sensible Daten versehentlich über ein unverschlüsseltes POST-Kommando zum Server gelangen. -Oder dass Angreifer durch eine man-in-the-middle-Attacke die HTTP-Verbindung entführen. HSTS steuert gegen.
+Webseiten, die ausschließlich per HTTPS angesprochen werden wollen, fügen in Ihre Server-Antworten einen HSTS-Header mit ein. Ähnlich wie bei einem Cookie merkt sich der Browser in eigenen Datenbank, von welchen Servern er HSTS-Header bekommen hat und weigert sich fortan, diese per HTTP anzusprechen.
+Die HSTS-Header werden dabei mit einer Time-to-live versehen, so dass diese Information grundsätzlich auch wieder expiren würde. Es kann ja sein, daß sich die Situation mal ändert. Doch mit jedem Besuch auf der HTTPS-Webseite wird die Lebenszeit der HSTS-Information wieder aufgefrischt und die Cache-Lebenszeit beginnt von neuem. Wer Anfangs mit HSTS noch experimentiert, möchte darum vielleicht zunächst kurze TTLs wählen.</p>
+<p>Im gleichen Zuge verbieten wir dann noch die Nutzung von unsicheren Verschlüsselungen und Algorithmen. Dies könnt zwar zu Inkompatibilität mit älteren Geräten führen, schützt uns aber vor Datenklau.</p>
+<p>Zur Umsetzung muss nur, dass von mir unten definierte Beispiel in die Konfigurationsdatei von Apache übernommen und der Server neu gestartet werden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/apache2/apache2.conf
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># HTST</span>
+&lt;IfModule mod_headers.c&gt;
+        Header always <span class="nb">set</span> Strict-Transport-Security <span class="s2">&#34;max-age=31536000; includeSubDomains; preload&#34;</span>
+&lt;/IfModule&gt; 
+
+<span class="c1"># Enable only strong encryption ciphers and prefer versions with Forward Secrecy</span>
+SSLCipherSuite HIGH:RC4-SHA:AES128-SHA:!aNULL:!MD5
+SSLHonorCipherOrder on
+
+<span class="c1"># Disable insecure SSL and TLS versions</span>
+SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl restart apache2.service
+</code></pre></div><h2 id="website-testen">Website testen</h2>
+<p>Der Website SSL Tester kann überprüfen, ob SSL, Verschlüsselung, Zertifikat und HTST richtig konfiguriert sind. Euer Ergebnis sollte wie bei mit bei A+ Liebegen.</p>
+<p><a class="link" href="https://www.ssllabs.com/ssltest/"  target="_blank" rel="noopener"
+    ><strong>Zum Tester</strong></a></p>
+<p><figure 
+	>
+	<a href="/blog/apache-webserver-absichern/ssl-tester.jpg" >
+		<img src="/blog/apache-webserver-absichern/ssl-tester.jpg"
+			
+			
+			
+			loading="lazy"
+			alt="SSL tester Screenshot">
+	</a>
+	
+	<figcaption>SSL tester Screenshot</figcaption>
+	
+</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/apache/">apache</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/webserver/">webserver</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-deb-erstellen/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-deb-erstellen" 
+                        data-hash="md5-PTUcJx9iGp37DMetQp8ifg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux eigenes DEB Package erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/ssh-server-keys/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="ssh-server-keys" 
+                        data-hash="md5-iGY36aqi&#43;Y1PK5HjfMxCRw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SSH Server Absichern und Keys richtig Benutzen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-verschl%C3%BCsselung/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.696b79b0ae7c2fdd852f71533f88a05a_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-verschlüsselung" 
+                        data-hash="md5-aWt5sK58L92FL3FTP4igWg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux - Ordner Verschlüsseln</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/apt-repo/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apt-repo" 
+                        data-hash="md5-TliA/uvta4IL0kxKzSKP0Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/vpn-server/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/vpn-server/vpn.25b3d9bd728cf6438a58dff8905d0fbe_huf8067167d17c1f7664dc10bf6b473122_108156_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="vpn-server" 
+                        data-hash="md5-JbPZvXKM9kOKWN/4kF0Pvg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pritunl - VPN im LXC Container</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#was-ist-apache">Was ist Apache?</a></li>
+    <li><a href="#unser-ziel">Unser Ziel</a></li>
+    <li><a href="#benötigte-pakete-installieren">Benötigte Pakete Installieren</a></li>
+    <li><a href="#apache-servermodule-sichern">Apache Servermodule sichern</a></li>
+    <li><a href="#mod-security">Mod Security</a>
+      <ol>
+        <li><a href="#konfiguration-laden">Konfiguration Laden</a></li>
+        <li><a href="#fail2ban-einbinden">Fail2Ban Einbinden</a></li>
+      </ol>
+    </li>
+    <li><a href="#mod-evasive">Mod Evasive</a>
+      <ol>
+        <li><a href="#konfiguration-laden-1">Konfiguration Laden</a></li>
+        <li><a href="#hintergrund-der-konfiguration">Hintergrund der Konfiguration</a></li>
+        <li><a href="#überprüfen-ob-der-mod-läuft">Überprüfen, ob der Mod Läuft</a></li>
+        <li><a href="#fail2ban-einbinden-1">Fail2Ban Einbinden</a></li>
+      </ol>
+    </li>
+    <li><a href="#den-host-korrekt-anlegen">Den Host korrekt anlegen</a></li>
+    <li><a href="#konfiguration-und-module-aktivieren">Konfiguration und Module Aktivieren</a>
+      <ol>
+        <li><a href="#wichtige-apache-2-befehle">Wichtige Apache 2 Befehle</a></li>
+      </ol>
+    </li>
+    <li><a href="#fail2ban-konfiguration-anpassen">Fail2Ban konfiguration anpassen</a>
+      <ol>
+        <li><a href="#anpassen-der-richtlinien">Anpassen der Richtlinien</a></li>
+        <li><a href="#ip-unbannen">IP Unbannen</a></li>
+      </ol>
+    </li>
+    <li><a href="#https-und-lets-encrypt">HTTPS und Let’s Encrypt</a>
+      <ol>
+        <li><a href="#certbot-konfiguration-anpassen">Certbot Konfiguration anpassen</a></li>
+        <li><a href="#abrufen-eines-ssl-zertifikats">Abrufen eines SSL-Zertifikats</a></li>
+        <li><a href="#htst-und-stärkere-verschlüsselung">HTST und stärkere Verschlüsselung</a></li>
+      </ol>
+    </li>
+    <li><a href="#website-testen">Website testen</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

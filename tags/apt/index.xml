@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apt on MacAndMore</title>
+    <link>https://macandmore.ddnss.de/tags/apt/</link>
+    <description>Recent content in apt on MacAndMore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Sat, 20 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/apt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eigenes Apt Repository erstellen</title>
+      <link>https://macandmore.ddnss.de/blog/apt-repo/</link>
+      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://macandmore.ddnss.de/blog/apt-repo/</guid>
+      <description>Was ist Apt bzw. ein Apt Repository? Ursprünglich für Debian entwickelt, ist das Advanced Packaging Tool APT auch heute noch für GNU/Linux ein extrem nützliches Werkzeug. Der Paketmanager dient zur Paketverwaltung, sprich zur Suche, Aktualisierung und Installation von Programmpaketen. Diese Pakete (.deb) Können Lokal oder über einen HTTP bzw. FTP Server bereitgestellt werden. Diese Bereitstellung greift auf eine Datenbank Struktur zurück, wodurch sich der begriff Apt Repository ergibt.
+Erforderliche Pakete installieren Zum Bereitstellen der Datenstruktur werden wir den Webserver Apache2 Verwenden zwar wäre FTP auch denkbar, jedoch bietet Apache das Beste maß an Sicherheit, Geschwindigkeit und Konfiguration.</description>
+    </item>
+    
+  </channel>
+</rss>

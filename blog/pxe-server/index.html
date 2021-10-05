@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).'><title>PXE Multioboot Server</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/pxe-server/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='PXE Multioboot Server'>
+<meta property='og:description' content='Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/pxe-server/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pxe' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='boot' /><meta property='article:tag' content='syslinux' /><meta property='article:published_time' content='2020-12-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-12-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/pxe-server/network.jpg' />
+<meta name="twitter:title" content="PXE Multioboot Server">
+<meta name="twitter:description" content="Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS)."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/pxe-server/network.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/pxe-server/">
+                <img src="/blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_800x0_resize_q75_box.jpg"
+                        srcset="/blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_800x0_resize_q75_box.jpg 800w, /blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="422" 
+                        loading="lazy"
+                        alt="Featured image of post PXE Multioboot Server" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/pxe-server/">PXE Multioboot Server</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">13. 12. 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="was-ist-pxe">Was ist PXE?</h2>
+<p>PXE ist ein Verfahren von Intel, um Computer einen netzwerkbasierten Startvorgang zu ermöglichen.
+Damit ist gemeint, dass ein Computer nicht das Betriebssystem von der Festplatte lädt, sondern aus dem Netzwerk.
+PXE fasst verschiedene Verfahren zusammen, um einen Computer übers Netzwerk zu Booten. Früher brauchte man noch
+für jede Netzwerkkarte einen eigenen Treiber, damit das gelang. PXE bringt die notwendigen Funktionen mit.
+Es ist eine Erweiterung für eine normierte Schnittstelle für Netzwerkzugriffe. PXE ist im BIOS der Netzwerkkarte
+integriert. So ist das Booten übers Netzwerk bei allen Netzwerkkarten identisch.</p>
+<h2 id="was-ist-tftp">Was ist TFTP?</h2>
+<p>Das Trivial File Transfer Protocol, kurz TFTP, ist ein sehr einfaches Client-Server-Protokoll,
+das den Transfer von Dateien in Computernetzwerken regelt. Eine erste Spezifikation wurde im Juni 1981
+in RFC 783 veröffentlicht. Der aktuelle Standard ist im 1992 erschienenen RFC 1350 nachzulesen.
+Das TFTP-Protokoll setzt standardmäßig auf dem ebenfalls minimalistischen Transportprotokoll
+UDP (User Datagram Protocol) auf, das eine Datenübertragung ohne feste Verbindung zwischen den
+Kommunikationspartnern vorsieht. Die Implementierung von TFTP auf Basis anderer Protokolle ist grundsätzlich
+aber ebenfalls möglich.</p>
+<h2 id="benötigte-pakete-installieren">Benötigte Pakete installieren</h2>
+<p>Für einen PXE Server benötigt man einen Netboot fähigen Bootloader und den Dateidienst TFTP. In diesem Fall werden wir Syslinux als Bootloader und das offizielle TFTP Paket aus dem Debian Repository. Um später dann noch Boot Images zu Entpacken Benötigen wir unzip.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install syslinux-common syslinux-efi tftp-hpa unzip -y
+</code></pre></div><h2 id="pxe-und-syslinux-dateien">PXE und Syslinux Dateien</h2>
+<h3 id="erstellen-des-tftp-root">Erstellen des TFTP-Root</h3>
+<p>Der TFTP-Root ist ein Ordner auf dem Dateisystem der frei über TFTP verfügbar ist und von dem alle benötigten Dateien für das Booten geladen werden.
+In diesem Beispiel wird er auf dem Wurzelverzeichnis erstellt, um Berechtigungs- und Zugarmproblemen vorzubeugen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir /tftpboot
+</code></pre></div><h3 id="bios-legacy-oder-uefi">BIOS (Legacy) oder UEFI?</h3>
+<p>Es gibt zwei Möglichkeiten für das BIOS deines Rechners einem Bootmanager (Syslinux) zu laden, BIOS (Legacy) und das neuere UEFI. Grundsätzlich empfiehlt sich in der heutigen Zeit immer UEFI, jedoch denke ich, dass aufgrund von Kompatibilität und Portabilität BIOS (Legacy) für einen PXE Server die bessere Wahl ist (Nicht zuletzt auch aufgrund meiner eigenen Erfahrung).</p>
+<p><strong>Was ist BIOS (Legacy) Boot?</strong></p>
+<p>Beim &ldquo;Basic Input/Output System&rdquo; (BIOS) handelt es sich um die Firmware eines PCs. Sie bildet die zentrale
+moderner Nachfolger: Mit seiner grafischen Benutzeroberfläche lässt sich UEFI-BIOS deutlich komfortabler
+bedienen als das BIOS und bietet auch deutlich mehr Funktionen. Das BIOS sorgt dafür, dass nach dem Einschalten
+des PCs seine Komponenten wie beispielsweise die Grafikkarte, die Festplatte und die Netzwerkschnittstelle korrekt
+erkannt und initialisiert werden, bevor Windows startet - das OS wäre ansonsten nicht lauffähig.</p>
+<p><strong>Was ist UEFI Boot?</strong></p>
+<p>UEFI​, das &ldquo;Unified Extensible Firmware Interface&rdquo;, macht grundsätzlich genau das Gleiche wie das BIOS,
+bringt aber deutlich mehr Funktionen mit, unterstützt die neueste Hardware und sieht obendrein viel moderner aus.
+Ob Sie es bei Ihrem Rechner mit einem BIOS oder einem UEFI-BIOS zu tun haben, können Sie deshalb leicht erkennen.
+Ein UEFI-BIOS ist normalerweise grafisch aufwendig gestaltet, lässt sich per Maus steuern und ähnelt hinsichtlich
+seines Benutzeroberflächen-Designs einer Windows-Anwendung.</p>
+<h3 id="initialisierung-des-bootloaders">Initialisierung des Bootloaders</h3>
+<p><strong>Initialisierung mit UEFI</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo <span class="nb">cd</span> /tftpboot
+wget https://github.com/MacAndMoreYT/PXE/raw/master/UEFI/UEFI.zip
+unzip *.zip
+rm -r UEFI.zip
+</code></pre></div><p><strong>Initialisierung BIOS (Legacy)</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo <span class="nb">cd</span> /tftpboot
+wget https://github.com/MacAndMoreYT/PXE/raw/master/BIOS/BIOS.zip
+unzip *.zip
+rm -r BIOS.zip
+</code></pre></div><h2 id="konfiguration-des-tftp-servers">Konfiguration des TFTP Servers</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/default/tftpd-hpa
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">TFTP_USERNAME</span><span class="o">=</span><span class="s2">&#34;tftp&#34;</span>
+<span class="nv">TFTP_DIRECTORY</span><span class="o">=</span><span class="s2">&#34;/tftpboot&#34;</span>
+<span class="nv">TFTP_ADDRESS</span><span class="o">=</span><span class="s2">&#34;0.0.0.0:69&#34;</span>
+<span class="nv">TFTP_OPTIONS</span><span class="o">=</span><span class="s2">&#34;--secure&#34;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl restart tftpd-hpa.service
+</code></pre></div><h2 id="eintrag-im-router-dhcp-server-vornehmen">Eintrag im Router (DHCP Server) Vornehmen</h2>
+<p>Damit die Clients via DHCP den PXE Server &ldquo;Sehen&rdquo; können, müssen wir am Router via TFTP  Auf die Bootdateien und Syslinux verweisen!
+Weitere Informationen findest du im Video.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">UEFI</span> <span class="o">=</span> PXE via <span class="nv">TFTP</span> <span class="o">=</span> syslinux.efi
+<span class="nv">BIOS</span> <span class="o">=</span> PXE via <span class="nv">TFTP</span> <span class="o">=</span> pxelinux.0
+</code></pre></div><h2 id="betriebssystem-images-downloaden">Betriebssystem Images Downloaden</h2>
+<p>Nun musst du nur noch für den Bootloader die entsprechenden Betriebssystem-Images bereitstellen.
+Da dies bei jedem Betriebssystem anders ist, solltest du individuell nach Dokumentationen suchen. In jenem Fall findest du unten eine Liste kompatibler Betriebssysteme. Ferner ist es wichtig, zu jedem hinzugefügten Element den entsprechenden Eintrag in der &ldquo;pxelinux.cfg/default&rdquo; vorzunehmen.</p>
+<h3 id="beispiel-debian">Beispiel Debian</h3>
+<p><a class="link" href="https://www.debian.org/distrib/netinst#netboot"  target="_blank" rel="noopener"
+    >Debian NetBoot Image Download</a></p>
+<p><strong>Eintrag in der &ldquo;pxelinux.cfg/default&rdquo;</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#pxelinux.cfg/default</span>
+
+LABEL Debian <span class="m">10</span> x64
+MENU LABEL Debian <span class="m">10</span> Installer <span class="o">(</span>Automatic<span class="o">)</span>
+KERNEL debian-10/linux
+append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz 
+</code></pre></div><h3 id="weitere-images">Weitere Images</h3>
+<ul>
+<li><a class="link" href="https://www.debian.org/distrib/netinst#netboot"  target="_blank" rel="noopener"
+    >Debian NetBoot Image Download</a></li>
+<li><a class="link" href="https://ubuntu.com/download/alternative-downloads"  target="_blank" rel="noopener"
+    >Ubuntu NetBoot Image Download</a></li>
+<li><a class="link" href="https://github.com/MacAndMoreYT/PXE"  target="_blank" rel="noopener"
+    >Freedos, PartedMagic (GitHub)</a></li>
+</ul>
+<h2 id="youtube-video">YouTube Video</h2>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/0D6kCReyFEc" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pxe/">pxe</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/boot/">boot</a>
+        
+            <a href="/tags/syslinux/">syslinux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/apache-webserver-absichern/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apache-webserver-absichern" 
+                        data-hash="md5-KefUpgflMMiOGSjcNHI12g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache Webserver Absichern</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-deb-erstellen/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-deb-erstellen" 
+                        data-hash="md5-PTUcJx9iGp37DMetQp8ifg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux eigenes DEB Package erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/ssh-server-keys/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="ssh-server-keys" 
+                        data-hash="md5-iGY36aqi&#43;Y1PK5HjfMxCRw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SSH Server Absichern und Keys richtig Benutzen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-verschl%C3%BCsselung/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.696b79b0ae7c2fdd852f71533f88a05a_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-verschlüsselung" 
+                        data-hash="md5-aWt5sK58L92FL3FTP4igWg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux - Ordner Verschlüsseln</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/apt-repo/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apt-repo" 
+                        data-hash="md5-TliA/uvta4IL0kxKzSKP0Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#was-ist-pxe">Was ist PXE?</a></li>
+    <li><a href="#was-ist-tftp">Was ist TFTP?</a></li>
+    <li><a href="#benötigte-pakete-installieren">Benötigte Pakete installieren</a></li>
+    <li><a href="#pxe-und-syslinux-dateien">PXE und Syslinux Dateien</a>
+      <ol>
+        <li><a href="#erstellen-des-tftp-root">Erstellen des TFTP-Root</a></li>
+        <li><a href="#bios-legacy-oder-uefi">BIOS (Legacy) oder UEFI?</a></li>
+        <li><a href="#initialisierung-des-bootloaders">Initialisierung des Bootloaders</a></li>
+      </ol>
+    </li>
+    <li><a href="#konfiguration-des-tftp-servers">Konfiguration des TFTP Servers</a></li>
+    <li><a href="#eintrag-im-router-dhcp-server-vornehmen">Eintrag im Router (DHCP Server) Vornehmen</a></li>
+    <li><a href="#betriebssystem-images-downloaden">Betriebssystem Images Downloaden</a>
+      <ol>
+        <li><a href="#beispiel-debian">Beispiel Debian</a></li>
+        <li><a href="#weitere-images">Weitere Images</a></li>
+      </ol>
+    </li>
+    <li><a href="#youtube-video">YouTube Video</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

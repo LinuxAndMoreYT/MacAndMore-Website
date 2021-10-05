@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'><title>Linux - Ordner Verschlüsseln</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux - Ordner Verschlüsseln'>
+<meta property='og:description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='gpg' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='verschlüsselung' /><meta property='article:published_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
+<meta name="twitter:title" content="Linux - Ordner Verschlüsseln">
+<meta name="twitter:description" content="Wie man ordner oder Dateien unter Linux Verschlüsselt."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/linux-verschl%C3%BCsselung/">
+                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg"
+                        srcset="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg 800w, /blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="475" 
+                        loading="lazy"
+                        alt="Featured image of post Linux - Ordner Verschlüsseln" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/linux-verschl%C3%BCsselung/">Linux - Ordner Verschlüsseln</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Wie man ordner oder Dateien unter Linux Verschlüsselt.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">29. 03. 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="was-wir-vorhaben">Was wir Vorhaben</h2>
+<p>Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.</p>
+<h2 id="was-ist-gpg">Was ist GPG</h2>
+<p>GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &ldquo;automatische&rdquo; Vertrauenskonzept. Das Vertrauenskonzept &ldquo;web of trust&rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.
+Der Einsatz von GPG ist gerade in der Open Source Welt sehr verbreitet. GPG wird hier zur Signatur des Quellcodes oder zur Authentifizierung von Paketquellen gegenüber dem Linux Betriebssystems genutzt. Man kann sogar beliebige Dateien mit GPG verschlüsseln. Unter Linux ist das GPG Paket bereits integriert und kann auf Kommandozeilenebene direkt genutzt werden.</p>
+<h2 id="erforderliche-pakete-installieren">Erforderliche Pakete installieren</h2>
+<p>GnuPG sollte eigentlich schon auf jedem Linux-Rechner vorhanden sein. Im Zweifelsfall ist unten der entsprechende Befehl aufgeführt. Zudem installieren wird noch Tar, um Archive zu erstellen, welche dann verschlüsselt werden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo sudo apt install gnupg2 tar -y
+</code></pre></div><h2 id="order-bzw-datien-archivieren">Order bzw. Datien archivieren</h2>
+<p>GnuPG kann nur einzelne Dateien Verschlüssen, damit wir aber mehrere Dateien oder ganze Ordner verwenden können, ist die Erstellung eines Archivs essenziell. In diesem Beispiel wir Tar verwendet, Ihr, seid aber bei der Auswahl frei und könnt alle möglichen Archive und sogar Kompressionen verwenden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">tar cfvz archiv.tar.gz inhalt1 inhalt2
+</code></pre></div><h2 id="mit-gpg-verschlüsseln">Mit GPG verschlüsseln</h2>
+<p>Mit dem unten aufgeführten Befehl wird dann das Archiv verschlüsselt. Dies kann je nach Rechnerleistung und vor allem Dateigröße Zeit in Anspruch nehmen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -c dateiname
+</code></pre></div><h2 id="entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</h2>
+<p>Nun möchte man vielleicht auch, dass Verschlüsselte wieder entschlüsseln. Das geht an jedem Rechner, der ebenfalls GnuPG installiert hat. Zu beachten ist nur, dass die verschlüsselte Datei sowie der Schlüssel gebraucht wird, um wie unten beschrieben wieder das erstellt Archiv zu erhalten und dieses letztendlich entpacken zu können.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -d dateiname.gpg &gt; archiv.tar.gz
+tar xfvz archiv.tar.gz
+</code></pre></div><h2 id="youtube-video">YouTube Video</h2>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/p1SKFSAkR5I" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/gpg/">gpg</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/verschl%C3%BCsselung/">verschlüsselung</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/apache-webserver-absichern/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apache-webserver-absichern" 
+                        data-hash="md5-KefUpgflMMiOGSjcNHI12g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache Webserver Absichern</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-deb-erstellen/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-deb-erstellen" 
+                        data-hash="md5-PTUcJx9iGp37DMetQp8ifg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux eigenes DEB Package erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/ssh-server-keys/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="ssh-server-keys" 
+                        data-hash="md5-iGY36aqi&#43;Y1PK5HjfMxCRw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SSH Server Absichern und Keys richtig Benutzen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/apt-repo/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apt-repo" 
+                        data-hash="md5-TliA/uvta4IL0kxKzSKP0Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/vpn-server/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/vpn-server/vpn.25b3d9bd728cf6438a58dff8905d0fbe_huf8067167d17c1f7664dc10bf6b473122_108156_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="vpn-server" 
+                        data-hash="md5-JbPZvXKM9kOKWN/4kF0Pvg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pritunl - VPN im LXC Container</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#was-wir-vorhaben">Was wir Vorhaben</a></li>
+    <li><a href="#was-ist-gpg">Was ist GPG</a></li>
+    <li><a href="#erforderliche-pakete-installieren">Erforderliche Pakete installieren</a></li>
+    <li><a href="#order-bzw-datien-archivieren">Order bzw. Datien archivieren</a></li>
+    <li><a href="#mit-gpg-verschlüsseln">Mit GPG verschlüsseln</a></li>
+    <li><a href="#entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</a></li>
+    <li><a href="#youtube-video">YouTube Video</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

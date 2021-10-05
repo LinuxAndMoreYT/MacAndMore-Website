@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpg on MacAndMore</title>
+    <link>https://macandmore.ddnss.de/tags/gpg/</link>
+    <description>Recent content in gpg on MacAndMore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux - Ordner Verschlüsseln</title>
+      <link>https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/</guid>
+      <description>Was wir Vorhaben Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.
+Was ist GPG GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &amp;ldquo;automatische&amp;rdquo; Vertrauenskonzept. Das Vertrauenskonzept &amp;ldquo;web of trust&amp;rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.</description>
+    </item>
+    
+  </channel>
+</rss>

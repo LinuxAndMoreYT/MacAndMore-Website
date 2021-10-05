@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Der Eigene OpenVPN Server im LXC Container unter Proxmox.'><title>Pritunl - VPN im LXC Container</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/vpn-server/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Pritunl - VPN im LXC Container'>
+<meta property='og:description' content='Der Eigene OpenVPN Server im LXC Container unter Proxmox.'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/vpn-server/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='vpn' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='proxmox' /><meta property='article:tag' content='pritunl' /><meta property='article:published_time' content='2021-01-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-01-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/vpn-server/vpn.jpg' />
+<meta name="twitter:title" content="Pritunl - VPN im LXC Container">
+<meta name="twitter:description" content="Der Eigene OpenVPN Server im LXC Container unter Proxmox."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/vpn-server/vpn.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/vpn-server/">
+                <img src="/blog/vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_800x0_resize_q75_box.jpg"
+                        srcset="/blog/vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_800x0_resize_q75_box.jpg 800w, /blog/vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="439" 
+                        loading="lazy"
+                        alt="Featured image of post Pritunl - VPN im LXC Container" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/vpn-server/">Pritunl - VPN im LXC Container</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Der Eigene OpenVPN Server im LXC Container unter Proxmox.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">17. 01. 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="was-ist-eine-vpn">Was ist eine VPN?</h2>
+<p>Eine der besten Möglichkeiten zum Sichern von Daten in und aus Ihrem Netzwerk könnte die Verwendung eines VPN sein.
+Es verschlüsselt den gesamten Online-Verkehr zwischen einem VPN-Server und einem Smartphone oder Laptop, um diese zu
+sichern. Dazu wird die Geräteidentität maskiert und eine sichere Verbindung hergestellt.
+Daher wird es für Hacker schwierig, auf vertraulichen Daten zuzugreifen</p>
+<h2 id="was-ist-pritunl">Was ist Pritunl?</h2>
+<p>Pritunl bietet ein effizientes VPN mit komplexen Gateway-Links und Site-to-Site-Links und ermöglicht
+Remotebenutzern den Zugriff auf lokale Netzwerke über OpenVPN und Wireguard. Die Konfiguration und
+Überwachung geschieht hierbei über eine leicht zu bedienende Weboberfläche.</p>
+<h2 id="was-ist-openvpn">Was ist OpenVPN?</h2>
+<p>OpenVPN ist eine freie Software zum Aufbau eines Virtuellen Privaten Netzwerkes über eine verschlüsselte
+TLS-Verbindung. Zur Verschlüsselung kann OpenSSL oder mbed TLS benutzt werden. OpenVPN verwendet wahlweise
+UDP oder TCP zum Transport</p>
+<h2 id="vorbereitungen-bei-proxmox-lxc-containern">Vorbereitungen bei Proxmox LXC Containern</h2>
+<p>Da OpenVPN zum Erstellen von Subnetzen auf die Linux Kernel Module TUN/TAP Zugreifen muss und diese bei LXC Container nicht freigegeben sind, müssen sie als Geräte simuliert werden. Dies bringt keine Nachteile mit sich, da nur zwei Ordner in &ldquo;/dev&rdquo; beim Systemstart erstellt werden müssen. In diesem Beispiel wird dafür Cron und ein kleines Shell Skript genutzt.</p>
+<p><strong>Cron Eintrag</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo crontab -e
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">@reboot sh /root/tun-tap.sh
+</code></pre></div><p><strong>Das Skript</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano  /root/tun-tap.sh
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">mkdir -p /dev/net
+mknod -m <span class="m">666</span> /dev/net/tun c <span class="m">10</span> <span class="m">200</span>
+</code></pre></div><p><strong>Neustarten um die Änderungen Anzuwenden</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo reboot
+</code></pre></div><h2 id="installation-von-pritunl-skript">Installation von Pritunl (Skript)</h2>
+<p>Zur Vereinfachung der Installation von Pritunl habe ich ein simples Shell Skript geschrieben welches dies vereinfacht. Einfach herunterladen und Ausführen!</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo wget https://macandmore.ddnss.de/download/vpn-server/install.sh <span class="o">&amp;&amp;</span> bash install.sh
+</code></pre></div><h2 id="erhalten-der-zugangsdaten">Erhalten der Zugangsdaten</h2>
+<p>Zum Einrichten der Pritunl Instanz wird neben dem Passwort zur Anmeldung ein Setup-Key benötigt. Dieser lässt sich genauso wie das Passwort über folgende Befehle auf der Kommandozeile ausgeben.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo pritunl setup-key
+pritunl default-password
+</code></pre></div><h2 id="configuration-des-server">Configuration des Server</h2>
+<p>Nun müssen die unten aufgeführten Punkte in der web Oberfläche abgeändert werden. Da dies bei jeder Installation abweichen ist, verweise ich hier auf mein Video.</p>
+<ul>
+<li>Nutzname und Passwort ändern</li>
+<li>Public Address auf DDNS / Domain setzten</li>
+<li>Organisation erstellen</li>
+<li>Nutzer erstellen</li>
+<li>Server erstellen und der Organisation zuweisen</li>
+</ul>
+<h2 id="aufbauen-einer-vpn-verbindung">Aufbauen einer VPN-Verbindung</h2>
+<p>Nachdem der erstellte Server gestartet wurde, muss man zunächst die OpenVPN Datei des erstellten Benutzers herunterladen. Dies geschieht im Falle von Pritunl ebenfalls über die Weboberfläche. Als Download bekommt man nun eine ZIP-Datei ZIP, welche entpackt eine .ovpn und .crt Datei enthält. Die .ovpn Datei fungiert hierbei als Konfigurationsdatei welche nun beispielsweise in die OpenVPN Connect App am Smartphone importiert werden kann. Für den PC gibt es für Windows und Mac die Offizielle Connect App und für Linux entsprechende Module für den Netzwerkmanager.</p>
+<h2 id="youtube-video">YouTube Video</h2>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/LnxM7jPemsw" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/vpn/">vpn</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/proxmox/">proxmox</a>
+        
+            <a href="/tags/pritunl/">pritunl</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/apache-webserver-absichern/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apache-webserver-absichern" 
+                        data-hash="md5-KefUpgflMMiOGSjcNHI12g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache Webserver Absichern</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-deb-erstellen/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-deb-erstellen" 
+                        data-hash="md5-PTUcJx9iGp37DMetQp8ifg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux eigenes DEB Package erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/ssh-server-keys/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="ssh-server-keys" 
+                        data-hash="md5-iGY36aqi&#43;Y1PK5HjfMxCRw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SSH Server Absichern und Keys richtig Benutzen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/linux-verschl%C3%BCsselung/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.696b79b0ae7c2fdd852f71533f88a05a_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-verschlüsselung" 
+                        data-hash="md5-aWt5sK58L92FL3FTP4igWg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux - Ordner Verschlüsseln</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/apt-repo/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="apt-repo" 
+                        data-hash="md5-TliA/uvta4IL0kxKzSKP0Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#was-ist-eine-vpn">Was ist eine VPN?</a></li>
+    <li><a href="#was-ist-pritunl">Was ist Pritunl?</a></li>
+    <li><a href="#was-ist-openvpn">Was ist OpenVPN?</a></li>
+    <li><a href="#vorbereitungen-bei-proxmox-lxc-containern">Vorbereitungen bei Proxmox LXC Containern</a></li>
+    <li><a href="#installation-von-pritunl-skript">Installation von Pritunl (Skript)</a></li>
+    <li><a href="#erhalten-der-zugangsdaten">Erhalten der Zugangsdaten</a></li>
+    <li><a href="#configuration-des-server">Configuration des Server</a></li>
+    <li><a href="#aufbauen-einer-vpn-verbindung">Aufbauen einer VPN-Verbindung</a></li>
+    <li><a href="#youtube-video">YouTube Video</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

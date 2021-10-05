@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Anwenden der Grundrechenarten im Binärsystem sowie die beidseitige Konvertierung von dezimal und Binärzahlen.'><title>Rechnen im Binärsystem</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/grundrechenarten/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Rechnen im Binärsystem'>
+<meta property='og:description' content='Anwenden der Grundrechenarten im Binärsystem sowie die beidseitige Konvertierung von dezimal und Binärzahlen.'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/grundrechenarten/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='informatik' /><meta property='article:published_time' content='2021-09-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/grundrechenarten/mathe.jpg' />
+<meta name="twitter:title" content="Rechnen im Binärsystem">
+<meta name="twitter:description" content="Anwenden der Grundrechenarten im Binärsystem sowie die beidseitige Konvertierung von dezimal und Binärzahlen."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/grundrechenarten/mathe.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/grundrechenarten/">
+                <img src="/blog/grundrechenarten/mathe_huf83988eddfb37585393668d79331d302_322219_800x0_resize_q75_box.jpg"
+                        srcset="/blog/grundrechenarten/mathe_huf83988eddfb37585393668d79331d302_322219_800x0_resize_q75_box.jpg 800w, /blog/grundrechenarten/mathe_huf83988eddfb37585393668d79331d302_322219_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="533" 
+                        loading="lazy"
+                        alt="Featured image of post Rechnen im Binärsystem" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/grundrechenarten/">Rechnen im Binärsystem</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Anwenden der Grundrechenarten im Binärsystem sowie die beidseitige Konvertierung von dezimal und Binärzahlen.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">30. 09. 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="einstieg">Einstieg</h2>
+<p>Der Computer befindest sich ja bekannter maßen im binären Zahlensystem. Durch geladen (1) oder ungeladen (0) kann der Computer mithilfe von Transistoren diese Zustände darstellen. Bezüglich der Rechenoperation verhält sich dies analog zur schriftlichen Addition unter Beachtung der global geltenden Rechenregen. Wichtig hiebei zu beachten ist auch der fackt, dass der computer ausschließlich Addieren und so alle Rechenoperation bedienen kann.</p>
+<h2 id="addtion">Addtion</h2>
+<p>Die Addition von Binärzahlen gestaltet sie ähnlich wie die schriftliche Addition. Zunächst schreibt man alle Summanden Untereinerader und addiert diese von oben nach unten mit Start von der rechten Seite (Bit 0 / LSB) unter Beachtung der Rechenregeln.
+Sollte ein Übertrag auftreten, wird dieser der nächsten Zahl nach links addiert.</p>
+<p><strong>Rechenregeln:</strong></p>
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1</li>
+<li>1 + 0 = 1</li>
+<li>1 + 1 = 0  ←  Übertrag 1</li>
+</ul>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">      <span class="m">1100</span>
+   +  <span class="m">1101</span>
+-----------
+Ü: + <span class="m">11000</span>
+-----------
+     <span class="m">11001</span>
+</code></pre></div><h2 id="subtraktion">Subtraktion</h2>
+<p>Die Subtraktion von Binärzahlen gestaltet sie ebenfalls gleich der schriftlichen Subtraktion. Stur folgend der Regel: &ldquo;Minuend und Subtrahend dürfen nicht vertauscht werden&rdquo; wird von oben nach unten mit Start von der rechten Seite (Bit 0 / LSB) unter Beachtung der Rechenregeln gerechnet.
+Sollte ein Übertrag auftreten, wird dieser der nächsten Zahl nach links subtrahiert.</p>
+<p><strong>Rechenregeln:</strong></p>
+<ul>
+<li>0 - 0 = 0</li>
+<li>0 - 1 = 1  ←  Übertrag 1</li>
+<li>1 - 0 = 1</li>
+<li>1 - 1 = 0</li>
+</ul>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">      <span class="m">10110</span>
+   -  <span class="m">00011</span>
+-----------
+Ü: -  <span class="m">00011</span>
+-----------
+      <span class="m">10011</span>
+</code></pre></div><h2 id="multiplikation">Multiplikation</h2>
+<p>Die binäre Multiplikation ist eine Mischung aus der schriftlichen Multiplikation und Addition. Zunächst multipliziert man unter Beachtung der Rechenregeln wie unten gezeigt jeder Ziffer des ersten Faktors mit der des Zweiten. Dann wird eine schriftliche Addition ausgeführt, in welcher alle Lehren Stellen gedanklich mit der 0 belegt werden können.
+Auch hier wird von oben nach unten mit Start von der rechten Seite (Bit 0 / LSB) unter Beachtung der Rechenregeln gerechnet.
+Sollte ein Übertrag auftreten, wird dieser der nächsten Zahl nach links subtrahiert.</p>
+<p><strong>Rechenregeln:</strong></p>
+<ul>
+<li>0 x 0 = 0</li>
+<li>0 x 1 = 0</li>
+<li>1 x 0 = 0</li>
+<li>1 x 1 = 1</li>
+</ul>
+<blockquote>
+<p><strong>Tipp:</strong> bei 1 x Faktor ist das Ergebnis der Faktor selbst und bei 0 x Faktor ist das Ergebnis 0.</p>
+</blockquote>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"> <span class="m">11001</span> x <span class="m">1011</span>
+-------------
+ <span class="m">11001</span>     <span class="p">|</span> +
+  <span class="m">00000</span>    <span class="p">|</span> +
+   <span class="m">11001</span>   <span class="p">|</span> +
+    <span class="m">11001</span>  <span class="p">|</span> +
+-------------
+<span class="m">100010011</span>
+
+</code></pre></div><h2 id="negative-zahlen">Negative Zahlen</h2>
+<p>Um negative Zahlen darzustellen, wird meist das erste Bit als Vorzeichen verwendet. Die 1 steht hierbei für eine negative Zahl. Der Wert wird dann mit der an erster Stelle der normalen Positiven zahl wie oben gelernt addiert. Die Zahl +42 wird also im Dualsystem mit 00101010 dargestellt und die Zahl -42 mit 10101010.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dezimal</th>
+<th style="text-align:center">Binär</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0000 0101</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0000 0100</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0000 0011</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0000 0010</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0000 0001</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0000 0000</td>
+</tr>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">1111 1111</td>
+</tr>
+<tr>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">1111 1110</td>
+</tr>
+<tr>
+<td style="text-align:center">-3</td>
+<td style="text-align:center">1111 1101</td>
+</tr>
+<tr>
+<td style="text-align:center">-4</td>
+<td style="text-align:center">1111 1100</td>
+</tr>
+<tr>
+<td style="text-align:center">-5</td>
+<td style="text-align:center">1111 1011</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dezimal-zu-binär">Dezimal zu Binär</h2>
+<p>Bei der Umwandlung von Dezimalzahlen in Binärzahlen wird die Dezimalzahl immer durch zwei geteilt. Sollte man bei einer ungeraden Zahl eine Kommazahl z. B. 2,5 erhalten wird diese als Rest=1 notiert andernfalls (bei 5) wäre der Rest 0.
+Weitergerechnet wird dann mit der nächst kleineren vollen zahl (2,5 -&gt; 2) bis man die Operation 1/2 erhält. Hiefür notiert man dann den Rest 1 und die Binärzahl wird rückwärts anhand der Restbeträge der Rechenoperation wie unten im Beispiel abgelesen.</p>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">Dezimal: <span class="m">100</span>
+------------------- ^
+100/2 <span class="o">=</span> <span class="m">50</span> <span class="p">|</span> Rest <span class="m">0</span> ^
+50/2  <span class="o">=</span> <span class="m">25</span> <span class="p">|</span> Rest <span class="m">0</span> ^
+25/2  <span class="o">=</span> <span class="m">12</span> <span class="p">|</span> Rest <span class="m">1</span> ^
+12/2  <span class="o">=</span> <span class="m">6</span>  <span class="p">|</span> Rest <span class="m">0</span> ^
+6/2   <span class="o">=</span> <span class="m">3</span>  <span class="p">|</span> Rest <span class="m">0</span> ^
+3/2   <span class="o">=</span> <span class="m">1</span>  <span class="p">|</span> Rest <span class="m">1</span> ^
+1/2   <span class="o">=</span> <span class="m">0</span>  <span class="p">|</span> Rest <span class="m">1</span> ^
+--------------------^
+Binär: <span class="m">1100100</span>
+</code></pre></div><h2 id="binär-zu-dezimal">Binär zu Dezimal</h2>
+<p>Bei der Umrechnung von Binärzahlen in Dezimalzahlen wird jede Stelle der Binärzahl, die mit einer 1 versehen ist, von hinten nach vorne gemäß der Tabelle addiert. Steht so beispielsweise eine 1 anstelle 4, muss 16 addiert werden. Bei einer null ist der wert, dann null.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Bit 0</th>
+<th style="text-align:center">Bit 1</th>
+<th style="text-align:center">Bit 2</th>
+<th style="text-align:center">Bit 3</th>
+<th style="text-align:center">Bit 4</th>
+<th style="text-align:center">Bit 5</th>
+<th style="text-align:center">Bit 6</th>
+<th style="text-align:center">Bit 7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2⁰</td>
+<td style="text-align:center">2¹</td>
+<td style="text-align:center">2²</td>
+<td style="text-align:center">2³</td>
+<td style="text-align:center">2⁴</td>
+<td style="text-align:center">2⁵</td>
+<td style="text-align:center">2⁶</td>
+<td style="text-align:center">2⁷</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">128</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">Binär: <span class="m">1101</span>
+------------------- 
+          ^ +1
+         ^  +0
+        ^   +4
+       ^    +8
+--------------------
+Dezimal:    <span class="m">12</span>
+
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/informatik/">informatik</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/ma%C3%9Feinheiten-informatik/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ma%C3%9Feinheiten-informatik/bin%C3%A4rcode.81b67faee481cd7e7f4fa3cd2403c06d_hua2fda68989cc8e3391b709b0b59962d0_332229_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="maßeinheiten-informatik" 
+                        data-hash="md5-gbZ/ruSBzX5/T6PNJAPAbQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Maßeinheiten der Informatik</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/einstig-informatik/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/einstig-informatik/informatik.fc664ed6812d4a4158e34e5040ad3654_hu75582b345fe2f2de5a252e530a1a7333_3637861_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="einstig-informatik" 
+                        data-hash="md5-/GZO1oEtSkFY405QQK02VA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Einstig in die Informatik</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/java-datentypen/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/java-datentypen/java.0b1448b4e317e2322b4506a167554377_hu247b5993f0f773e53dfa30888fe1b9d2_248753_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="java-datentypen" 
+                        data-hash="md5-CxRItOMX4jIrRQahZ1VDdw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java Datentypen</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#einstieg">Einstieg</a></li>
+    <li><a href="#addtion">Addtion</a></li>
+    <li><a href="#subtraktion">Subtraktion</a></li>
+    <li><a href="#multiplikation">Multiplikation</a></li>
+    <li><a href="#negative-zahlen">Negative Zahlen</a></li>
+    <li><a href="#dezimal-zu-binär">Dezimal zu Binär</a></li>
+    <li><a href="#binär-zu-dezimal">Binär zu Dezimal</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

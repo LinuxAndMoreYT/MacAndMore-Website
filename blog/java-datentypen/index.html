@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="de-de">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Ein Überblick sowie Anwendungsbeispiele zu Java Datentypen.'><title>Java Datentypen</title>
+
+<link rel='canonical' href='https://macandmore.ddnss.de/blog/java-datentypen/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Java Datentypen'>
+<meta property='og:description' content='Ein Überblick sowie Anwendungsbeispiele zu Java Datentypen.'>
+<meta property='og:url' content='https://macandmore.ddnss.de/blog/java-datentypen/'>
+<meta property='og:site_name' content='MacAndMore'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='java' /><meta property='article:tag' content='informatik' /><meta property='article:published_time' content='2021-09-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ddnss.de/blog/java-datentypen/java.jpg' />
+<meta name="twitter:title" content="Java Datentypen">
+<meta name="twitter:description" content="Ein Überblick sowie Anwendungsbeispiele zu Java Datentypen."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ddnss.de/blog/java-datentypen/java.jpg' />
+    <link rel="shortcut icon" href="/favicon.jpg" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://macandmore.ddnss.de" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Zur Startseite</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/blog/java-datentypen/">
+                <img src="/blog/java-datentypen/java_hu247b5993f0f773e53dfa30888fe1b9d2_248753_800x0_resize_q75_box.jpg"
+                        srcset="/blog/java-datentypen/java_hu247b5993f0f773e53dfa30888fe1b9d2_248753_800x0_resize_q75_box.jpg 800w, /blog/java-datentypen/java_hu247b5993f0f773e53dfa30888fe1b9d2_248753_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="533" 
+                        loading="lazy"
+                        alt="Featured image of post Java Datentypen" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/blog/java-datentypen/">Java Datentypen</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Ein Überblick sowie Anwendungsbeispiele zu Java Datentypen.
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">13. 09. 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 Minuten Lesezeit
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="was-sind-datentypen">Was sind Datentypen?</h2>
+<p>Datentypen sind Kategorien von Daten. Der Computer stellt Daten in Bits mit 0 und 1 dar. Um dabei Buchstaben, ganze Zahlen, Fließkommazahlen usw. Unterscheiden zu können und die Anzahl der Bit Länge zu begrenzen, ist eine Einordnung notwendig. In Java werden Datentypen in Primitive und Komplexe unterteilt.
+Diesen Datentypen werden dann Variabeln angehängt, welche ihren Inhalt definieren. Variabeln können dann im weiteren Programmverlauf ausgelesen und verändert werden.</p>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># int</span>
+<span class="nv">15</span>   <span class="o">=</span> <span class="m">00001111</span>
+<span class="c1"># double</span>
+15,0 <span class="o">=</span> <span class="m">100000000101110000000000000000000000000000000000000000000000000</span>
+</code></pre></div><h2 id="was-sind-variablen">Was sind Variablen?</h2>
+<p>Variablen bezeichnen Werte, die sich während des Programmablaufs ändern. Operatoren sind Zeichen oder kleine Wörter, welche die Beziehung zwischen Variablen und Werten beschreiben. Den Namen der Variablen können wir selbst festlegen. Erlaubt ist fast alles, außer: Er darf kein Java-Wort sein, darf nur aus alphanumerischen Zeichen und dem Zeichen _ (Unterstrich) bestehen und nicht mit einer Ziffer beginnen.</p>
+<h2 id="primitive-datentypen">Primitive Datentypen</h2>
+<p>Primitive Datentypen sind in Java unveränderlich eingebunden. Sie besitzen fest definierte Wertebereiche und sind gegen Objekte abgegrenzt. Die primitiven Datentypen wurden aus Performance-Gründen nicht als Klassen realisiert.</p>
+<p><strong>Ganze Zahlen</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:left">Wertebereich</th>
+<th style="text-align:center">Bit Länge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:left">-128 bis +127</td>
+<td style="text-align:center">8 bit</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:left">-32768 bis +32767</td>
+<td style="text-align:center">16 bit</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:left">-2147483648 bis +2147483647</td>
+<td style="text-align:center">32 bit</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:left">-9223372036854775808 bis +9223372036854775807</td>
+<td style="text-align:center">64 bit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Flieskomma Zahlen</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:left">Wertebereich</th>
+<th style="text-align:center">Bit Länge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:left">Einfache Genauigkeit (7 Nachkommastellen)</td>
+<td style="text-align:center">32 bit</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:left">Doppelte Genauigkeit (16 Nachkommastellen)</td>
+<td style="text-align:center">64 bit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Zustände und Buchstaben</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:left">Wertebereich</th>
+<th style="text-align:center">Bit Länge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:left">true oder false</td>
+<td style="text-align:center">8 bit</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:left">&lsquo;a&rsquo; oder &lsquo;A&rsquo; (aA bis zZ)</td>
+<td style="text-align:center">16 bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="komplexe-datentypen">Komplexe Datentypen</h2>
+<p>Jeder komplexe Datentyp in Java kommt grundsätzlich aus einer Klasse. Dabei wird dieser im Regelfall durch einen Konstruktor erstellt. Java selbst liefert interne Datentypen wie String oder Array aus, welche wie die Primitive Datentypen über ein Gleichheitszeichen definiert werden können.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:left">Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Sätze und Zeichenketten</td>
+</tr>
+<tr>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">Datenfeld - Container</td>
+</tr>
+<tr>
+<td style="text-align:center">enum</td>
+<td style="text-align:left">Vordefinierte Konstanten als Variabel</td>
+</tr>
+<tr>
+<td style="text-align:center">BigDecimal</td>
+<td style="text-align:left">Beliebig genaue Fließkommazahlen</td>
+</tr>
+<tr>
+<td style="text-align:center">BigInteger</td>
+<td style="text-align:left">Beliebig große ganze Zahlen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="die-wichtigsten-im-überblick">Die wichtigsten im Überblick</h2>
+<p>Auch wenn jeder Datentyp seine Berechtigung hat, gibt es klare Favoriten. Die wichtigsten werde ich euch nun mit Funktion und Anwendung näher bringen. Ich habe spezifisch jene Datentypen ausgewählt, welche in ihrer werte Annahme am genausten sind und sich nicht doppeln.</p>
+<h3 id="int">Int</h3>
+<ul>
+<li>Primitiv</li>
+<li>Für ganze Zahlen</li>
+<li>-2147483648 bis +2147483647 (32 Bit)</li>
+<li>Wird erstellt mit int Variabelname = ;</li>
+<li>Standardwert 0</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">999999999</span><span class="o">;</span>
+</code></pre></div><h3 id="double">Double</h3>
+<ul>
+<li>Primitiv</li>
+<li>Für Flieskomma Zahlen</li>
+<li>16 Nachkommastellen (64 Bit)</li>
+<li>Wird erstellt mit double Variabelname = ;</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">1</span><span class="o">.</span><span class="na">123123123</span><span class="o">;</span>
+</code></pre></div><h3 id="boolean">Boolean</h3>
+<ul>
+<li>Primitiv</li>
+<li>Für Zustände</li>
+<li>true oder false (8 Bit)</li>
+<li>Standardwert false</li>
+<li>Wird erstellt mit boolean Variabelname = true/false;</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">boolean</span> <span class="n">regen</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">sonne</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</code></pre></div><h3 id="char">Char</h3>
+<ul>
+<li>Primitiv</li>
+<li>Für Buchstaben aller Art (32 Bit)</li>
+<li>Wird erstellt mit char Variabelname = ' &lsquo;;</li>
+<li>Buchstabe muss in ' ' geschrieben werden!</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">char</span> <span class="n">peter</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="o">;</span>
+</code></pre></div><h3 id="string">String</h3>
+<ul>
+<li>Komplex</li>
+<li>Für Zeichenketten</li>
+<li>Wird erstellt mit String Variabelname = &quot; &ldquo;;</li>
+<li>Alle Zeichen sind erlaubt</li>
+<li>Buchstabe muss in &quot; &quot; geschrieben werden!</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">beruf</span> <span class="o">=</span> <span class="s">&#34;Millionär&#34;</span><span class="o">;</span>
+</code></pre></div><h3 id="array">Array</h3>
+<ul>
+<li>Komplex</li>
+<li>Darstellen von mehreren Daten in einer Liste</li>
+<li>Wird erstellt mit Datentyp[] Variabelname ={ };</li>
+<li>Die Angaberegeln der Datentypen sind dabei einzuhalten</li>
+<li>Stellen im Array werden ab 0 gezählt</li>
+<li>Auslesen mit Variabelname[Stelle im Array]</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Ganze Zahlen
+</span><span class="c1"></span><span class="kt">int</span><span class="o">[]</span> <span class="n">zahlen</span>            <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">5</span><span class="o">};</span>
+<span class="c1">// Buchstaben
+</span><span class="c1"></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buchstaben</span>       <span class="o">=</span> <span class="o">{</span><span class="sc">&#39;A&#39;</span><span class="o">,</span> <span class="sc">&#39;C&#39;</span><span class="o">,</span> <span class="sc">&#39;D&#39;</span><span class="o">};</span>
+<span class="c1">// Flieskomma Zahlen
+</span><span class="c1"></span><span class="kt">double</span><span class="o">[]</span> <span class="n">werte</span>          <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">.</span><span class="na">12</span><span class="o">,</span> <span class="n">123</span><span class="o">.</span><span class="na">22</span><span class="o">,</span> <span class="n">0</span><span class="o">.</span><span class="na">33332</span><span class="o">};</span>
+<span class="c1">// Zeichenkette
+</span><span class="c1"></span><span class="n">String</span><span class="o">[]</span> <span class="n">zeichenfolgen</span>  <span class="o">=</span> <span class="o">{</span><span class="s">&#34;Hallo, was geht?&#34;</span><span class="o">,</span> <span class="s">&#34;Java ist Cool&#34;</span><span class="o">,</span> <span class="s">&#34;Linux Rockt!&#34;</span><span class="o">};</span>
+
+<span class="c1">// Auslesen 
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">zahl</span>            <span class="o">=</span> <span class="n">zahlen</span><span class="o">[</span><span class="n">3</span><span class="o">];</span>
+<span class="kt">char</span> <span class="n">buchstabe</span>      <span class="o">=</span> <span class="n">buchstaben</span><span class="o">[</span><span class="n">1</span><span class="o">];</span>
+<span class="kt">double</span> <span class="n">wert</span>         <span class="o">=</span> <span class="n">werte</span><span class="o">[</span><span class="n">0</span><span class="o">];</span>
+<span class="n">String</span> <span class="n">zeichenfolge</span> <span class="o">=</span> <span class="n">zeichenfolgen</span><span class="o">[</span><span class="n">2</span><span class="o">];</span>
+</code></pre></div><h2 id="für-alle-datentypen-gilt">Für alle Datentypen gilt</h2>
+<ul>
+<li>Enden mit Semikolon</li>
+<li>Werden über das Gleichheitszeichen definiert</li>
+<li>Typ steht am Anfang</li>
+<li>Name ist frei wählbar</li>
+<li>Werden zunächst initialisiert</li>
+<li>Der Inhalt wird durch variabel bestimmt</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/java/">java</a>
+        
+            <a href="/tags/informatik/">informatik</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Verwandte Inhalte</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/blog/grundrechenarten/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/grundrechenarten/mathe.f21fd0fe2bbe75f009a314315c8f8cf6_huf83988eddfb37585393668d79331d302_322219_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="grundrechenarten" 
+                        data-hash="md5-8h/Q/iu&#43;dfAJoxQxXI&#43;M9g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rechnen im Binärsystem</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/ma%C3%9Feinheiten-informatik/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/ma%C3%9Feinheiten-informatik/bin%C3%A4rcode.81b67faee481cd7e7f4fa3cd2403c06d_hua2fda68989cc8e3391b709b0b59962d0_332229_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="maßeinheiten-informatik" 
+                        data-hash="md5-gbZ/ruSBzX5/T6PNJAPAbQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Maßeinheiten der Informatik</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/blog/einstig-informatik/">
+        
+        
+            <div class="article-image">
+                <img src="/blog/einstig-informatik/informatik.fc664ed6812d4a4158e34e5040ad3654_hu75582b345fe2f2de5a252e530a1a7333_3637861_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="einstig-informatik" 
+                        data-hash="md5-/GZO1oEtSkFY405QQK02VA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Einstig in die Informatik</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 MacAndMore
+    </section>
+    
+    <section class="powerby">
+        Erstellt mit <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> gestaltet von <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Inhaltsverzeichnis</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#was-sind-datentypen">Was sind Datentypen?</a></li>
+    <li><a href="#was-sind-variablen">Was sind Variablen?</a></li>
+    <li><a href="#primitive-datentypen">Primitive Datentypen</a></li>
+    <li><a href="#komplexe-datentypen">Komplexe Datentypen</a></li>
+    <li><a href="#die-wichtigsten-im-überblick">Die wichtigsten im Überblick</a>
+      <ol>
+        <li><a href="#int">Int</a></li>
+        <li><a href="#double">Double</a></li>
+        <li><a href="#boolean">Boolean</a></li>
+        <li><a href="#char">Char</a></li>
+        <li><a href="#string">String</a></li>
+        <li><a href="#array">Array</a></li>
+      </ol>
+    </li>
+    <li><a href="#für-alle-datentypen-gilt">Für alle Datentypen gilt</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

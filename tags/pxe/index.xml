@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pxe on MacAndMore</title>
+    <link>https://macandmore.ddnss.de/tags/pxe/</link>
+    <description>Recent content in pxe on MacAndMore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/pxe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PXE Multioboot Server</title>
+      <link>https://macandmore.ddnss.de/blog/pxe-server/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://macandmore.ddnss.de/blog/pxe-server/</guid>
+      <description>Was ist PXE? PXE ist ein Verfahren von Intel, um Computer einen netzwerkbasierten Startvorgang zu ermöglichen. Damit ist gemeint, dass ein Computer nicht das Betriebssystem von der Festplatte lädt, sondern aus dem Netzwerk. PXE fasst verschiedene Verfahren zusammen, um einen Computer übers Netzwerk zu Booten. Früher brauchte man noch für jede Netzwerkkarte einen eigenen Treiber, damit das gelang. PXE bringt die notwendigen Funktionen mit. Es ist eine Erweiterung für eine normierte Schnittstelle für Netzwerkzugriffe.</description>
+    </item>
+    
+  </channel>
+</rss>
