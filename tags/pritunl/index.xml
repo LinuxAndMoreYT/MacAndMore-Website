@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 17 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/tags/pritunl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pritunl - VPN im LXC Container</title>
-      <link>https://macandmore.ts13.de/blog/vpn-server/</link>
+      <link>https://macandmore.ts13.de/vpn-server/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ts13.de/blog/vpn-server/</guid>
+      <guid>https://macandmore.ts13.de/vpn-server/</guid>
       <description>Was ist eine VPN? Eine der besten Möglichkeiten zum Sichern von Daten in und aus Ihrem Netzwerk könnte die Verwendung eines VPN sein. Es verschlüsselt den gesamten Online-Verkehr zwischen einem VPN-Server und einem Smartphone oder Laptop, um diese zu sichern. Dazu wird die Geräteidentität maskiert und eine sichere Verbindung hergestellt. Daher wird es für Hacker schwierig, auf vertraulichen Daten zuzugreifen
 Was ist Pritunl? Pritunl bietet ein effizientes VPN mit komplexen Gateway-Links und Site-to-Site-Links und ermöglicht Remotebenutzern den Zugriff auf lokale Netzwerke über OpenVPN und Wireguard.</description>
     </item>

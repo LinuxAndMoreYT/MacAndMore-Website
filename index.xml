@@ -8,11 +8,11 @@
         <language>de-de</language>
         <lastBuildDate>Thu, 30 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Rechnen im Binärsystem</title>
-        <link>https://macandmore.ts13.de/blog/grundrechenarten/</link>
+        <link>https://macandmore.ts13.de/grundrechenarten/</link>
         <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/grundrechenarten/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/grundrechenarten/mathe.jpg" alt="Featured image of post Rechnen im Binärsystem" /&gt;&lt;h2 id=&#34;einstieg&#34;&gt;Einstieg&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/grundrechenarten/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/grundrechenarten/mathe.jpg" alt="Featured image of post Rechnen im Binärsystem" /&gt;&lt;h2 id=&#34;einstieg&#34;&gt;Einstieg&lt;/h2&gt;
 &lt;p&gt;Der Computer befindest sich ja bekannter maßen im binären Zahlensystem. Durch geladen (1) oder ungeladen (0) kann der Computer mithilfe von Transistoren diese Zustände darstellen. Bezüglich der Rechenoperation verhält sich dies analog zur schriftlichen Addition unter Beachtung der global geltenden Rechenregen. Wichtig hiebei zu beachten ist auch der fackt, dass der computer ausschließlich Addieren und so alle Rechenoperation bedienen kann.&lt;/p&gt;
 &lt;h2 id=&#34;addtion&#34;&gt;Addtion&lt;/h2&gt;
 &lt;p&gt;Die Addition von Binärzahlen gestaltet sie ähnlich wie die schriftliche Addition. Zunächst schreibt man alle Summanden Untereinerader und addiert diese von oben nach unten mit Start von der rechten Seite (Bit 0 / LSB) unter Beachtung der Rechenregeln.
@@ -195,11 +195,11 @@ Dezimal:    &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;
         </item>
         <item>
         <title>Maßeinheiten der Informatik</title>
-        <link>https://macandmore.ts13.de/blog/ma%C3%9Feinheiten-informatik/</link>
+        <link>https://macandmore.ts13.de/ma%C3%9Feinheiten-informatik/</link>
         <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/ma%C3%9Feinheiten-informatik/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/ma%C3%9Feinheiten-informatik/bin%C3%A4rcode.jpg" alt="Featured image of post Maßeinheiten der Informatik" /&gt;&lt;h2 id=&#34;das-bit&#34;&gt;Das Bit&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/ma%C3%9Feinheiten-informatik/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/ma%C3%9Feinheiten-informatik/bin%C3%A4rcode.jpg" alt="Featured image of post Maßeinheiten der Informatik" /&gt;&lt;h2 id=&#34;das-bit&#34;&gt;Das Bit&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Maßeinheit für den Informationsgehalt&lt;/li&gt;
 &lt;li&gt;Steht für Binärziffer&lt;/li&gt;
@@ -543,11 +543,11 @@ Stelle notwendig, da es keine weitere Ziffer gibt.&lt;/p&gt;
         </item>
         <item>
         <title>Einstig in die Informatik</title>
-        <link>https://macandmore.ts13.de/blog/einstig-informatik/</link>
+        <link>https://macandmore.ts13.de/einstig-informatik/</link>
         <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/einstig-informatik/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/einstig-informatik/informatik.jpg" alt="Featured image of post Einstig in die Informatik" /&gt;&lt;h2 id=&#34;was-ist-informatik&#34;&gt;Was ist Informatik?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/einstig-informatik/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/einstig-informatik/informatik.jpg" alt="Featured image of post Einstig in die Informatik" /&gt;&lt;h2 id=&#34;was-ist-informatik&#34;&gt;Was ist Informatik?&lt;/h2&gt;
 &lt;p&gt;Informatik ist eine Wissenschaft von der systematischen und oder automatischen Verarbeitung, Darstellung, Speicherung und Übertragung von Informationen mithilfe von Computern.
 Sie untersucht Verfahrensweisen und Methoden für die Verarbeitung von Informationen mithilfe von Algorithmen.&lt;/p&gt;
 &lt;h2 id=&#34;teilgebiete-der-informatik&#34;&gt;Teilgebiete der Informatik&lt;/h2&gt;
@@ -735,11 +735,11 @@ Die berechneten Daten werden dem Nutzer über eine GUI oder auf der Konsole ausg
         </item>
         <item>
         <title>Java Datentypen</title>
-        <link>https://macandmore.ts13.de/blog/java-datentypen/</link>
+        <link>https://macandmore.ts13.de/java-datentypen/</link>
         <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/java-datentypen/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/java-datentypen/java.jpg" alt="Featured image of post Java Datentypen" /&gt;&lt;h2 id=&#34;was-sind-datentypen&#34;&gt;Was sind Datentypen?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/java-datentypen/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/java-datentypen/java.jpg" alt="Featured image of post Java Datentypen" /&gt;&lt;h2 id=&#34;was-sind-datentypen&#34;&gt;Was sind Datentypen?&lt;/h2&gt;
 &lt;p&gt;Datentypen sind Kategorien von Daten. Der Computer stellt Daten in Bits mit 0 und 1 dar. Um dabei Buchstaben, ganze Zahlen, Fließkommazahlen usw. Unterscheiden zu können und die Anzahl der Bit Länge zu begrenzen, ist eine Einordnung notwendig. In Java werden Datentypen in Primitive und Komplexe unterteilt.
 Diesen Datentypen werden dann Variabeln angehängt, welche ihren Inhalt definieren. Variabeln können dann im weiteren Programmverlauf ausgelesen und verändert werden.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Beispiel:&lt;/strong&gt;&lt;/p&gt;
@@ -941,11 +941,11 @@ Diesen Datentypen werden dann Variabeln angehängt, welche ihren Inhalt definier
         </item>
         <item>
         <title>Apache Webserver Absichern</title>
-        <link>https://macandmore.ts13.de/blog/apache-webserver-absichern/</link>
+        <link>https://macandmore.ts13.de/apache-webserver-absichern/</link>
         <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/apache-webserver-absichern/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/apache-webserver-absichern/webserver.jpg" alt="Featured image of post Apache Webserver Absichern" /&gt;&lt;blockquote&gt;
+        <guid>https://macandmore.ts13.de/apache-webserver-absichern/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/apache-webserver-absichern/webserver.jpg" alt="Featured image of post Apache Webserver Absichern" /&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Achtung:&lt;/strong&gt;
 Dieser Artikel richtet sich aufgrund seiner Komplexität an fortgeschrittene Linux Nutzer und Admins. Da dieser Artikel sehr umfangreich ist, wird es nicht möglich sein, alle Aspekte und schritte bis in das kleinste Detail zu erklären. So empfiehlt es sich bei Bedarf eigene Nachforschungen anzustellen.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1212,11 +1212,11 @@ SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
         </item>
         <item>
         <title>Nexus - Ein lohnenswerter Blick für alle Gamer</title>
-        <link>https://macandmore.ts13.de/blog/nexus/</link>
+        <link>https://macandmore.ts13.de/nexus/</link>
         <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/nexus/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/nexus/nexus.jpg" alt="Featured image of post Nexus - Ein lohnenswerter Blick für alle Gamer" /&gt;&lt;p&gt;Moin Leute,&lt;/p&gt;
+        <guid>https://macandmore.ts13.de/nexus/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/nexus/nexus.jpg" alt="Featured image of post Nexus - Ein lohnenswerter Blick für alle Gamer" /&gt;&lt;p&gt;Moin Leute,&lt;/p&gt;
 &lt;p&gt;heute stelle ich euch einen Gamingkanal vor. Dieser wird von meinem Kumpel Tim betrieben, welcher hier Inhalte rund um das Thema Rocket League und Geometry Dash veröffentlicht. Leider wurde sein alter Kanal gelöscht und so denke ich, dass wir ihm als Community helfen sollten zu wachsen. Außerdem lohnt sich generell ein abwechslungsreicher Blick auf die &amp;ldquo;Gaming Kultur&amp;rdquo;, um auch mal etwas Abstand von Linux, Server und Co zu nehmen. Schaut also gerne vorbei und abonniert bei Interesse!&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCiRZ4tBDSqdhJvmOfQlWczA/featured&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Zum Kanal&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1233,19 +1233,19 @@ SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
         </item>
         <item>
         <title>Linux eigenes DEB Package erstellen</title>
-        <link>https://macandmore.ts13.de/blog/linux-deb-erstellen/</link>
+        <link>https://macandmore.ts13.de/linux-deb-erstellen/</link>
         <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/linux-deb-erstellen/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/linux-deb-erstellen/deb.jpg" alt="Featured image of post Linux eigenes DEB Package erstellen" /&gt;</description>
+        <guid>https://macandmore.ts13.de/linux-deb-erstellen/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/linux-deb-erstellen/deb.jpg" alt="Featured image of post Linux eigenes DEB Package erstellen" /&gt;</description>
         </item>
         <item>
         <title>SSH Server Absichern und Keys richtig Benutzen</title>
-        <link>https://macandmore.ts13.de/blog/ssh-server-keys/</link>
+        <link>https://macandmore.ts13.de/ssh-server-keys/</link>
         <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/ssh-server-keys/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/ssh-server-keys/ssh.jpg" alt="Featured image of post SSH Server Absichern und Keys richtig Benutzen" /&gt;&lt;h2 id=&#34;was-ist-ssh&#34;&gt;Was ist SSH?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/ssh-server-keys/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/ssh-server-keys/ssh.jpg" alt="Featured image of post SSH Server Absichern und Keys richtig Benutzen" /&gt;&lt;h2 id=&#34;was-ist-ssh&#34;&gt;Was ist SSH?&lt;/h2&gt;
 &lt;p&gt;SSH, auch bekannt als Secure Shell oder Secure Socket Shell, ist ein Netzwerkprotokoll, das Benutzern, insbesondere Systemadministratoren, eine sichere Möglichkeit bietet, über ein ungesichertes Netzwerk auf einen Computer zuzugreifen. Neben der Bereitstellung von sicheren Netzwerkdiensten bezieht sich SSH auf die Suite von Dienstprogrammen, die das SSH-Protokoll implementieren.&lt;/p&gt;
 &lt;h2 id=&#34;unser-ziel&#34;&gt;Unser Ziel&lt;/h2&gt;
 &lt;p&gt;Unser Ziel wird es sein den viel benutzen SSH Dienst so sicher wie möglich zu konfigurieren und automatische sperren sowie DDOS bzw. Brutforce Schutzkonzepte zu implementieren. Natürlich ist der hier gezeigte weg nur ein Part der sicheren Konfiguration eines Linux Servers und sollte von euch entsprechend den Umständen und Anforderungen angepasst werden. Erweitert mit anderen Schutzkonzepten ist dies aber ein guter Ausgangspunkt zum sicheren Server.&lt;/p&gt;
@@ -1441,11 +1441,11 @@ Subsystem sftp /usr/lib/ssh/sftp-server
         </item>
         <item>
         <title>Linux - Ordner Verschlüsseln</title>
-        <link>https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/</link>
+        <link>https://macandmore.ts13.de/linux-verschl%C3%BCsselung/</link>
         <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg" alt="Featured image of post Linux - Ordner Verschlüsseln" /&gt;&lt;h2 id=&#34;was-wir-vorhaben&#34;&gt;Was wir Vorhaben&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/linux-verschl%C3%BCsselung/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg" alt="Featured image of post Linux - Ordner Verschlüsseln" /&gt;&lt;h2 id=&#34;was-wir-vorhaben&#34;&gt;Was wir Vorhaben&lt;/h2&gt;
 &lt;p&gt;Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.&lt;/p&gt;
 &lt;h2 id=&#34;was-ist-gpg&#34;&gt;Was ist GPG&lt;/h2&gt;
 &lt;p&gt;GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &amp;ldquo;automatische&amp;rdquo; Vertrauenskonzept. Das Vertrauenskonzept &amp;ldquo;web of trust&amp;rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.
@@ -1477,11 +1477,11 @@ tar xfvz archiv.tar.gz
         </item>
         <item>
         <title>Eigenes Apt Repository erstellen</title>
-        <link>https://macandmore.ts13.de/blog/apt-repo/</link>
+        <link>https://macandmore.ts13.de/apt-repo/</link>
         <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/apt-repo/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/apt-repo/repository.jpg" alt="Featured image of post Eigenes Apt Repository erstellen" /&gt;&lt;h2 id=&#34;was-ist-apt-bzw-ein-apt-repository&#34;&gt;Was ist Apt bzw. ein Apt Repository?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/apt-repo/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/apt-repo/repository.jpg" alt="Featured image of post Eigenes Apt Repository erstellen" /&gt;&lt;h2 id=&#34;was-ist-apt-bzw-ein-apt-repository&#34;&gt;Was ist Apt bzw. ein Apt Repository?&lt;/h2&gt;
 &lt;p&gt;Ursprünglich für Debian entwickelt, ist das Advanced Packaging Tool APT auch heute noch für GNU/Linux ein extrem nützliches Werkzeug. Der Paketmanager dient zur Paketverwaltung, sprich zur Suche, Aktualisierung und Installation von Programmpaketen. Diese Pakete (.deb) Können Lokal oder über einen HTTP bzw. FTP Server bereitgestellt werden. Diese Bereitstellung greift auf eine Datenbank Struktur zurück, wodurch sich der begriff Apt Repository ergibt.&lt;/p&gt;
 &lt;h2 id=&#34;erforderliche-pakete-installieren&#34;&gt;Erforderliche Pakete installieren&lt;/h2&gt;
 &lt;p&gt;Zum Bereitstellen der Datenstruktur werden wir den Webserver Apache2 Verwenden zwar wäre FTP auch denkbar, jedoch bietet Apache das Beste maß an Sicherheit, Geschwindigkeit und Konfiguration. Um dann das Repository sowie die Pakete zu signieren, wird GnuPG benötigt. Die Bereitstellung der Repositorystruktur übernimmt dann das Tool Reprepro.&lt;/p&gt;
@@ -1592,11 +1592,11 @@ systemctl reload apache2
         </item>
         <item>
         <title>Pritunl - VPN im LXC Container</title>
-        <link>https://macandmore.ts13.de/blog/vpn-server/</link>
+        <link>https://macandmore.ts13.de/vpn-server/</link>
         <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/vpn-server/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/vpn-server/vpn.jpg" alt="Featured image of post Pritunl - VPN im LXC Container" /&gt;&lt;h2 id=&#34;was-ist-eine-vpn&#34;&gt;Was ist eine VPN?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/vpn-server/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/vpn-server/vpn.jpg" alt="Featured image of post Pritunl - VPN im LXC Container" /&gt;&lt;h2 id=&#34;was-ist-eine-vpn&#34;&gt;Was ist eine VPN?&lt;/h2&gt;
 &lt;p&gt;Eine der besten Möglichkeiten zum Sichern von Daten in und aus Ihrem Netzwerk könnte die Verwendung eines VPN sein.
 Es verschlüsselt den gesamten Online-Verkehr zwischen einem VPN-Server und einem Smartphone oder Laptop, um diese zu
 sichern. Dazu wird die Geräteidentität maskiert und eine sichere Verbindung hergestellt.
@@ -1652,11 +1652,11 @@ pritunl default-password
         </item>
         <item>
         <title>PXE Multioboot Server</title>
-        <link>https://macandmore.ts13.de/blog/pxe-server/</link>
+        <link>https://macandmore.ts13.de/pxe-server/</link>
         <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
         
-        <guid>https://macandmore.ts13.de/blog/pxe-server/</guid>
-        <description>&lt;img src="https://macandmore.ts13.de/blog/pxe-server/network.jpg" alt="Featured image of post PXE Multioboot Server" /&gt;&lt;h2 id=&#34;was-ist-pxe&#34;&gt;Was ist PXE?&lt;/h2&gt;
+        <guid>https://macandmore.ts13.de/pxe-server/</guid>
+        <description>&lt;img src="https://macandmore.ts13.de/pxe-server/network.jpg" alt="Featured image of post PXE Multioboot Server" /&gt;&lt;h2 id=&#34;was-ist-pxe&#34;&gt;Was ist PXE?&lt;/h2&gt;
 &lt;p&gt;PXE ist ein Verfahren von Intel, um Computer einen netzwerkbasierten Startvorgang zu ermöglichen.
 Damit ist gemeint, dass ein Computer nicht das Betriebssystem von der Festplatte lädt, sondern aus dem Netzwerk.
 PXE fasst verschiedene Verfahren zusammen, um einen Computer übers Netzwerk zu Booten. Früher brauchte man noch

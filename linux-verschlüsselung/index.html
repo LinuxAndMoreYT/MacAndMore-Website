@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="de-de">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).'><title>PXE Multioboot Server</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'><title>Linux - Ordner Verschlüsseln</title>
 
-<link rel='canonical' href='https://macandmore.ts13.de/blog/pxe-server/'>
+<link rel='canonical' href='https://macandmore.ts13.de/linux-verschl%C3%BCsselung/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='PXE Multioboot Server'>
-<meta property='og:description' content='Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).'>
-<meta property='og:url' content='https://macandmore.ts13.de/blog/pxe-server/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux - Ordner Verschlüsseln'>
+<meta property='og:description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'>
+<meta property='og:url' content='https://macandmore.ts13.de/linux-verschl%C3%BCsselung/'>
 <meta property='og:site_name' content='MacAndMore'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pxe' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='boot' /><meta property='article:tag' content='syslinux' /><meta property='article:published_time' content='2020-12-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-12-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ts13.de/blog/pxe-server/network.jpg' />
-<meta name="twitter:title" content="PXE Multioboot Server">
-<meta name="twitter:description" content="Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS)."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://macandmore.ts13.de/blog/pxe-server/network.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='gpg' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='verschlüsselung' /><meta property='article:published_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ts13.de/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
+<meta name="twitter:title" content="Linux - Ordner Verschlüsseln">
+<meta name="twitter:description" content="Wie man ordner oder Dateien unter Linux Verschlüsselt."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ts13.de/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
     <link rel="shortcut icon" href="/favicon.jpg" />
 
     </head>
@@ -64,13 +64,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/blog/pxe-server/">
-                <img src="/blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_800x0_resize_q75_box.jpg"
-                        srcset="/blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_800x0_resize_q75_box.jpg 800w, /blog/pxe-server/network_hubc6b742619f8c23f804bdf3cf4f76206_195163_1600x0_resize_q75_box.jpg 1600w"
+            <a href="/linux-verschl%C3%BCsselung/">
+                <img src="/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg"
+                        srcset="/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg 800w, /linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_1600x0_resize_q75_box.jpg 1600w"
                         width="800" 
-                        height="422" 
+                        height="475" 
                         loading="lazy"
-                        alt="Featured image of post PXE Multioboot Server" />
+                        alt="Featured image of post Linux - Ordner Verschlüsseln" />
                 
             </a>
         </div>
@@ -80,12 +80,12 @@
     
 
     <h2 class="article-title">
-        <a href="/blog/pxe-server/">PXE Multioboot Server</a>
+        <a href="/linux-verschl%C3%BCsselung/">Linux - Ordner Verschlüsseln</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        Installation eines Multioboot PXE Servers mit Syslinux (UEFI/BIOS).
+        Wie man ordner oder Dateien unter Linux Verschlüsselt.
     </h3>
     
 
@@ -102,7 +102,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">13. 12. 2020</time>
+                <time class="article-time--published">29. 03. 2021</time>
             </div>
         
 
@@ -117,7 +117,7 @@
 
 
                 <time class="article-time--reading">
-                    4 Minuten Lesezeit
+                    2 Minuten Lesezeit
                 </time>
             </div>
         
@@ -127,92 +127,28 @@
 </header>
 
     <section class="article-content">
-    <h2 id="was-ist-pxe">Was ist PXE?</h2>
-<p>PXE ist ein Verfahren von Intel, um Computer einen netzwerkbasierten Startvorgang zu ermöglichen.
-Damit ist gemeint, dass ein Computer nicht das Betriebssystem von der Festplatte lädt, sondern aus dem Netzwerk.
-PXE fasst verschiedene Verfahren zusammen, um einen Computer übers Netzwerk zu Booten. Früher brauchte man noch
-für jede Netzwerkkarte einen eigenen Treiber, damit das gelang. PXE bringt die notwendigen Funktionen mit.
-Es ist eine Erweiterung für eine normierte Schnittstelle für Netzwerkzugriffe. PXE ist im BIOS der Netzwerkkarte
-integriert. So ist das Booten übers Netzwerk bei allen Netzwerkkarten identisch.</p>
-<h2 id="was-ist-tftp">Was ist TFTP?</h2>
-<p>Das Trivial File Transfer Protocol, kurz TFTP, ist ein sehr einfaches Client-Server-Protokoll,
-das den Transfer von Dateien in Computernetzwerken regelt. Eine erste Spezifikation wurde im Juni 1981
-in RFC 783 veröffentlicht. Der aktuelle Standard ist im 1992 erschienenen RFC 1350 nachzulesen.
-Das TFTP-Protokoll setzt standardmäßig auf dem ebenfalls minimalistischen Transportprotokoll
-UDP (User Datagram Protocol) auf, das eine Datenübertragung ohne feste Verbindung zwischen den
-Kommunikationspartnern vorsieht. Die Implementierung von TFTP auf Basis anderer Protokolle ist grundsätzlich
-aber ebenfalls möglich.</p>
-<h2 id="benötigte-pakete-installieren">Benötigte Pakete installieren</h2>
-<p>Für einen PXE Server benötigt man einen Netboot fähigen Bootloader und den Dateidienst TFTP. In diesem Fall werden wir Syslinux als Bootloader und das offizielle TFTP Paket aus dem Debian Repository. Um später dann noch Boot Images zu Entpacken Benötigen wir unzip.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt install syslinux-common syslinux-efi tftp-hpa unzip -y
-</code></pre></div><h2 id="pxe-und-syslinux-dateien">PXE und Syslinux Dateien</h2>
-<h3 id="erstellen-des-tftp-root">Erstellen des TFTP-Root</h3>
-<p>Der TFTP-Root ist ein Ordner auf dem Dateisystem der frei über TFTP verfügbar ist und von dem alle benötigten Dateien für das Booten geladen werden.
-In diesem Beispiel wird er auf dem Wurzelverzeichnis erstellt, um Berechtigungs- und Zugarmproblemen vorzubeugen.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir /tftpboot
-</code></pre></div><h3 id="bios-legacy-oder-uefi">BIOS (Legacy) oder UEFI?</h3>
-<p>Es gibt zwei Möglichkeiten für das BIOS deines Rechners einem Bootmanager (Syslinux) zu laden, BIOS (Legacy) und das neuere UEFI. Grundsätzlich empfiehlt sich in der heutigen Zeit immer UEFI, jedoch denke ich, dass aufgrund von Kompatibilität und Portabilität BIOS (Legacy) für einen PXE Server die bessere Wahl ist (Nicht zuletzt auch aufgrund meiner eigenen Erfahrung).</p>
-<p><strong>Was ist BIOS (Legacy) Boot?</strong></p>
-<p>Beim &ldquo;Basic Input/Output System&rdquo; (BIOS) handelt es sich um die Firmware eines PCs. Sie bildet die zentrale
-moderner Nachfolger: Mit seiner grafischen Benutzeroberfläche lässt sich UEFI-BIOS deutlich komfortabler
-bedienen als das BIOS und bietet auch deutlich mehr Funktionen. Das BIOS sorgt dafür, dass nach dem Einschalten
-des PCs seine Komponenten wie beispielsweise die Grafikkarte, die Festplatte und die Netzwerkschnittstelle korrekt
-erkannt und initialisiert werden, bevor Windows startet - das OS wäre ansonsten nicht lauffähig.</p>
-<p><strong>Was ist UEFI Boot?</strong></p>
-<p>UEFI​, das &ldquo;Unified Extensible Firmware Interface&rdquo;, macht grundsätzlich genau das Gleiche wie das BIOS,
-bringt aber deutlich mehr Funktionen mit, unterstützt die neueste Hardware und sieht obendrein viel moderner aus.
-Ob Sie es bei Ihrem Rechner mit einem BIOS oder einem UEFI-BIOS zu tun haben, können Sie deshalb leicht erkennen.
-Ein UEFI-BIOS ist normalerweise grafisch aufwendig gestaltet, lässt sich per Maus steuern und ähnelt hinsichtlich
-seines Benutzeroberflächen-Designs einer Windows-Anwendung.</p>
-<h3 id="initialisierung-des-bootloaders">Initialisierung des Bootloaders</h3>
-<p><strong>Initialisierung mit UEFI</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo <span class="nb">cd</span> /tftpboot
-wget https://github.com/MacAndMoreYT/PXE/raw/master/UEFI/UEFI.zip
-unzip *.zip
-rm -r UEFI.zip
-</code></pre></div><p><strong>Initialisierung BIOS (Legacy)</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo <span class="nb">cd</span> /tftpboot
-wget https://github.com/MacAndMoreYT/PXE/raw/master/BIOS/BIOS.zip
-unzip *.zip
-rm -r BIOS.zip
-</code></pre></div><h2 id="konfiguration-des-tftp-servers">Konfiguration des TFTP Servers</h2>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano /etc/default/tftpd-hpa
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">TFTP_USERNAME</span><span class="o">=</span><span class="s2">&#34;tftp&#34;</span>
-<span class="nv">TFTP_DIRECTORY</span><span class="o">=</span><span class="s2">&#34;/tftpboot&#34;</span>
-<span class="nv">TFTP_ADDRESS</span><span class="o">=</span><span class="s2">&#34;0.0.0.0:69&#34;</span>
-<span class="nv">TFTP_OPTIONS</span><span class="o">=</span><span class="s2">&#34;--secure&#34;</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl restart tftpd-hpa.service
-</code></pre></div><h2 id="eintrag-im-router-dhcp-server-vornehmen">Eintrag im Router (DHCP Server) Vornehmen</h2>
-<p>Damit die Clients via DHCP den PXE Server &ldquo;Sehen&rdquo; können, müssen wir am Router via TFTP  Auf die Bootdateien und Syslinux verweisen!
-Weitere Informationen findest du im Video.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">UEFI</span> <span class="o">=</span> PXE via <span class="nv">TFTP</span> <span class="o">=</span> syslinux.efi
-<span class="nv">BIOS</span> <span class="o">=</span> PXE via <span class="nv">TFTP</span> <span class="o">=</span> pxelinux.0
-</code></pre></div><h2 id="betriebssystem-images-downloaden">Betriebssystem Images Downloaden</h2>
-<p>Nun musst du nur noch für den Bootloader die entsprechenden Betriebssystem-Images bereitstellen.
-Da dies bei jedem Betriebssystem anders ist, solltest du individuell nach Dokumentationen suchen. In jenem Fall findest du unten eine Liste kompatibler Betriebssysteme. Ferner ist es wichtig, zu jedem hinzugefügten Element den entsprechenden Eintrag in der &ldquo;pxelinux.cfg/default&rdquo; vorzunehmen.</p>
-<h3 id="beispiel-debian">Beispiel Debian</h3>
-<p><a class="link" href="https://www.debian.org/distrib/netinst#netboot"  target="_blank" rel="noopener"
-    >Debian NetBoot Image Download</a></p>
-<p><strong>Eintrag in der &ldquo;pxelinux.cfg/default&rdquo;</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#pxelinux.cfg/default</span>
-
-LABEL Debian <span class="m">10</span> x64
-MENU LABEL Debian <span class="m">10</span> Installer <span class="o">(</span>Automatic<span class="o">)</span>
-KERNEL debian-10/linux
-append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz 
-</code></pre></div><h3 id="weitere-images">Weitere Images</h3>
-<ul>
-<li><a class="link" href="https://www.debian.org/distrib/netinst#netboot"  target="_blank" rel="noopener"
-    >Debian NetBoot Image Download</a></li>
-<li><a class="link" href="https://ubuntu.com/download/alternative-downloads"  target="_blank" rel="noopener"
-    >Ubuntu NetBoot Image Download</a></li>
-<li><a class="link" href="https://github.com/MacAndMoreYT/PXE"  target="_blank" rel="noopener"
-    >Freedos, PartedMagic (GitHub)</a></li>
-</ul>
-<h2 id="youtube-video">YouTube Video</h2>
+    <h2 id="was-wir-vorhaben">Was wir Vorhaben</h2>
+<p>Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.</p>
+<h2 id="was-ist-gpg">Was ist GPG</h2>
+<p>GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &ldquo;automatische&rdquo; Vertrauenskonzept. Das Vertrauenskonzept &ldquo;web of trust&rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.
+Der Einsatz von GPG ist gerade in der Open Source Welt sehr verbreitet. GPG wird hier zur Signatur des Quellcodes oder zur Authentifizierung von Paketquellen gegenüber dem Linux Betriebssystems genutzt. Man kann sogar beliebige Dateien mit GPG verschlüsseln. Unter Linux ist das GPG Paket bereits integriert und kann auf Kommandozeilenebene direkt genutzt werden.</p>
+<h2 id="erforderliche-pakete-installieren">Erforderliche Pakete installieren</h2>
+<p>GnuPG sollte eigentlich schon auf jedem Linux-Rechner vorhanden sein. Im Zweifelsfall ist unten der entsprechende Befehl aufgeführt. Zudem installieren wird noch Tar, um Archive zu erstellen, welche dann verschlüsselt werden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo sudo apt install gnupg2 tar -y
+</code></pre></div><h2 id="order-bzw-datien-archivieren">Order bzw. Datien archivieren</h2>
+<p>GnuPG kann nur einzelne Dateien Verschlüssen, damit wir aber mehrere Dateien oder ganze Ordner verwenden können, ist die Erstellung eines Archivs essenziell. In diesem Beispiel wir Tar verwendet, Ihr, seid aber bei der Auswahl frei und könnt alle möglichen Archive und sogar Kompressionen verwenden.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">tar cfvz archiv.tar.gz inhalt1 inhalt2
+</code></pre></div><h2 id="mit-gpg-verschlüsseln">Mit GPG verschlüsseln</h2>
+<p>Mit dem unten aufgeführten Befehl wird dann das Archiv verschlüsselt. Dies kann je nach Rechnerleistung und vor allem Dateigröße Zeit in Anspruch nehmen.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -c dateiname
+</code></pre></div><h2 id="entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</h2>
+<p>Nun möchte man vielleicht auch, dass Verschlüsselte wieder entschlüsseln. Das geht an jedem Rechner, der ebenfalls GnuPG installiert hat. Zu beachten ist nur, dass die verschlüsselte Datei sowie der Schlüssel gebraucht wird, um wie unten beschrieben wieder das erstellt Archiv zu erhalten und dieses letztendlich entpacken zu können.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -d dateiname.gpg &gt; archiv.tar.gz
+tar xfvz archiv.tar.gz
+</code></pre></div><h2 id="youtube-video">YouTube Video</h2>
 <div class="video-wrapper">
     <iframe loading="lazy" 
-            src="https://www.youtube.com/embed/0D6kCReyFEc" 
+            src="https://www.youtube.com/embed/p1SKFSAkR5I" 
             allowfullscreen 
             title="YouTube Video"
     >
@@ -227,13 +163,11 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
     
     <section class="article-tags">
         
-            <a href="/tags/pxe/">pxe</a>
+            <a href="/tags/gpg/">gpg</a>
         
             <a href="/tags/linux/">linux</a>
         
-            <a href="/tags/boot/">boot</a>
-        
-            <a href="/tags/syslinux/">syslinux</a>
+            <a href="/tags/verschl%C3%BCsselung/">verschlüsselung</a>
         
     </section>
 
@@ -288,11 +222,11 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/apache-webserver-absichern/">
+    <a href="/apache-webserver-absichern/">
         
         
             <div class="article-image">
-                <img src="/blog/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -310,11 +244,11 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/linux-deb-erstellen/">
+    <a href="/linux-deb-erstellen/">
         
         
             <div class="article-image">
-                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -332,11 +266,11 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/ssh-server-keys/">
+    <a href="/ssh-server-keys/">
         
         
             <div class="article-image">
-                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -354,33 +288,11 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/linux-verschl%C3%BCsselung/">
+    <a href="/apt-repo/">
         
         
             <div class="article-image">
-                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.696b79b0ae7c2fdd852f71533f88a05a_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy" 
-                        data-key="linux-verschlüsselung" 
-                        data-hash="md5-aWt5sK58L92FL3FTP4igWg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Linux - Ordner Verschlüsseln</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="has-image">
-    <a href="/blog/apt-repo/">
-        
-        
-            <div class="article-image">
-                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -392,6 +304,28 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
 
         <div class="article-details">
             <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/vpn-server/">
+        
+        
+            <div class="article-image">
+                <img src="/vpn-server/vpn.25b3d9bd728cf6438a58dff8905d0fbe_huf8067167d17c1f7664dc10bf6b473122_108156_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="vpn-server" 
+                        data-hash="md5-JbPZvXKM9kOKWN/4kF0Pvg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pritunl - VPN im LXC Container</h2>
         </div>
     </a>
 </article>
@@ -521,24 +455,12 @@ append <span class="nv">initrd</span><span class="o">=</span>debian-10/initrd.gz
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#was-ist-pxe">Was ist PXE?</a></li>
-    <li><a href="#was-ist-tftp">Was ist TFTP?</a></li>
-    <li><a href="#benötigte-pakete-installieren">Benötigte Pakete installieren</a></li>
-    <li><a href="#pxe-und-syslinux-dateien">PXE und Syslinux Dateien</a>
-      <ol>
-        <li><a href="#erstellen-des-tftp-root">Erstellen des TFTP-Root</a></li>
-        <li><a href="#bios-legacy-oder-uefi">BIOS (Legacy) oder UEFI?</a></li>
-        <li><a href="#initialisierung-des-bootloaders">Initialisierung des Bootloaders</a></li>
-      </ol>
-    </li>
-    <li><a href="#konfiguration-des-tftp-servers">Konfiguration des TFTP Servers</a></li>
-    <li><a href="#eintrag-im-router-dhcp-server-vornehmen">Eintrag im Router (DHCP Server) Vornehmen</a></li>
-    <li><a href="#betriebssystem-images-downloaden">Betriebssystem Images Downloaden</a>
-      <ol>
-        <li><a href="#beispiel-debian">Beispiel Debian</a></li>
-        <li><a href="#weitere-images">Weitere Images</a></li>
-      </ol>
-    </li>
+    <li><a href="#was-wir-vorhaben">Was wir Vorhaben</a></li>
+    <li><a href="#was-ist-gpg">Was ist GPG</a></li>
+    <li><a href="#erforderliche-pakete-installieren">Erforderliche Pakete installieren</a></li>
+    <li><a href="#order-bzw-datien-archivieren">Order bzw. Datien archivieren</a></li>
+    <li><a href="#mit-gpg-verschlüsseln">Mit GPG verschlüsseln</a></li>
+    <li><a href="#entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</a></li>
     <li><a href="#youtube-video">YouTube Video</a></li>
   </ol>
 </nav>

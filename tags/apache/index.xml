@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/tags/apache/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apache Webserver Absichern</title>
-      <link>https://macandmore.ts13.de/blog/apache-webserver-absichern/</link>
+      <link>https://macandmore.ts13.de/apache-webserver-absichern/</link>
       <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ts13.de/blog/apache-webserver-absichern/</guid>
+      <guid>https://macandmore.ts13.de/apache-webserver-absichern/</guid>
       <description>Achtung: Dieser Artikel richtet sich aufgrund seiner Komplexität an fortgeschrittene Linux Nutzer und Admins. Da dieser Artikel sehr umfangreich ist, wird es nicht möglich sein, alle Aspekte und schritte bis in das kleinste Detail zu erklären. So empfiehlt es sich bei Bedarf eigene Nachforschungen anzustellen.
  Was ist Apache? Apache ist eine Software, die auf einem Server ausgeführt wird. Beim Apache-Webserver handelt es sich um eine plattformübergreifende Software, die sowohl auf Unix/Linux wie auch auf Windows Servern ausgeführt werden kann.</description>
     </item>

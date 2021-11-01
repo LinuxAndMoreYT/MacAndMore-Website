@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="de-de">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'><title>Linux - Ordner Verschlüsseln</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Der Eigene OpenVPN Server im LXC Container unter Proxmox.'><title>Pritunl - VPN im LXC Container</title>
 
-<link rel='canonical' href='https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/'>
+<link rel='canonical' href='https://macandmore.ts13.de/vpn-server/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux - Ordner Verschlüsseln'>
-<meta property='og:description' content='Wie man ordner oder Dateien unter Linux Verschlüsselt.'>
-<meta property='og:url' content='https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Pritunl - VPN im LXC Container'>
+<meta property='og:description' content='Der Eigene OpenVPN Server im LXC Container unter Proxmox.'>
+<meta property='og:url' content='https://macandmore.ts13.de/vpn-server/'>
 <meta property='og:site_name' content='MacAndMore'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='gpg' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='verschlüsselung' /><meta property='article:published_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-03-29T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
-<meta name="twitter:title" content="Linux - Ordner Verschlüsseln">
-<meta name="twitter:description" content="Wie man ordner oder Dateien unter Linux Verschlüsselt."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='vpn' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='proxmox' /><meta property='article:tag' content='pritunl' /><meta property='article:published_time' content='2021-01-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-01-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://macandmore.ts13.de/vpn-server/vpn.jpg' />
+<meta name="twitter:title" content="Pritunl - VPN im LXC Container">
+<meta name="twitter:description" content="Der Eigene OpenVPN Server im LXC Container unter Proxmox."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://macandmore.ts13.de/vpn-server/vpn.jpg' />
     <link rel="shortcut icon" href="/favicon.jpg" />
 
     </head>
@@ -64,13 +64,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/blog/linux-verschl%C3%BCsselung/">
-                <img src="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg"
-                        srcset="/blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_800x0_resize_q75_box.jpg 800w, /blog/linux-verschl%C3%BCsselung/verschl%C3%BCsselung_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_1600x0_resize_q75_box.jpg 1600w"
+            <a href="/vpn-server/">
+                <img src="/vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_800x0_resize_q75_box.jpg"
+                        srcset="/vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_800x0_resize_q75_box.jpg 800w, /vpn-server/vpn_huf8067167d17c1f7664dc10bf6b473122_108156_1600x0_resize_q75_box.jpg 1600w"
                         width="800" 
-                        height="475" 
+                        height="439" 
                         loading="lazy"
-                        alt="Featured image of post Linux - Ordner Verschlüsseln" />
+                        alt="Featured image of post Pritunl - VPN im LXC Container" />
                 
             </a>
         </div>
@@ -80,12 +80,12 @@
     
 
     <h2 class="article-title">
-        <a href="/blog/linux-verschl%C3%BCsselung/">Linux - Ordner Verschlüsseln</a>
+        <a href="/vpn-server/">Pritunl - VPN im LXC Container</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        Wie man ordner oder Dateien unter Linux Verschlüsselt.
+        Der Eigene OpenVPN Server im LXC Container unter Proxmox.
     </h3>
     
 
@@ -102,7 +102,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">29. 03. 2021</time>
+                <time class="article-time--published">17. 01. 2021</time>
             </div>
         
 
@@ -117,7 +117,7 @@
 
 
                 <time class="article-time--reading">
-                    2 Minuten Lesezeit
+                    3 Minuten Lesezeit
                 </time>
             </div>
         
@@ -127,28 +127,52 @@
 </header>
 
     <section class="article-content">
-    <h2 id="was-wir-vorhaben">Was wir Vorhaben</h2>
-<p>Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.</p>
-<h2 id="was-ist-gpg">Was ist GPG</h2>
-<p>GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &ldquo;automatische&rdquo; Vertrauenskonzept. Das Vertrauenskonzept &ldquo;web of trust&rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.
-Der Einsatz von GPG ist gerade in der Open Source Welt sehr verbreitet. GPG wird hier zur Signatur des Quellcodes oder zur Authentifizierung von Paketquellen gegenüber dem Linux Betriebssystems genutzt. Man kann sogar beliebige Dateien mit GPG verschlüsseln. Unter Linux ist das GPG Paket bereits integriert und kann auf Kommandozeilenebene direkt genutzt werden.</p>
-<h2 id="erforderliche-pakete-installieren">Erforderliche Pakete installieren</h2>
-<p>GnuPG sollte eigentlich schon auf jedem Linux-Rechner vorhanden sein. Im Zweifelsfall ist unten der entsprechende Befehl aufgeführt. Zudem installieren wird noch Tar, um Archive zu erstellen, welche dann verschlüsselt werden.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo sudo apt install gnupg2 tar -y
-</code></pre></div><h2 id="order-bzw-datien-archivieren">Order bzw. Datien archivieren</h2>
-<p>GnuPG kann nur einzelne Dateien Verschlüssen, damit wir aber mehrere Dateien oder ganze Ordner verwenden können, ist die Erstellung eines Archivs essenziell. In diesem Beispiel wir Tar verwendet, Ihr, seid aber bei der Auswahl frei und könnt alle möglichen Archive und sogar Kompressionen verwenden.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">tar cfvz archiv.tar.gz inhalt1 inhalt2
-</code></pre></div><h2 id="mit-gpg-verschlüsseln">Mit GPG verschlüsseln</h2>
-<p>Mit dem unten aufgeführten Befehl wird dann das Archiv verschlüsselt. Dies kann je nach Rechnerleistung und vor allem Dateigröße Zeit in Anspruch nehmen.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -c dateiname
-</code></pre></div><h2 id="entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</h2>
-<p>Nun möchte man vielleicht auch, dass Verschlüsselte wieder entschlüsseln. Das geht an jedem Rechner, der ebenfalls GnuPG installiert hat. Zu beachten ist nur, dass die verschlüsselte Datei sowie der Schlüssel gebraucht wird, um wie unten beschrieben wieder das erstellt Archiv zu erhalten und dieses letztendlich entpacken zu können.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">gpg -d dateiname.gpg &gt; archiv.tar.gz
-tar xfvz archiv.tar.gz
-</code></pre></div><h2 id="youtube-video">YouTube Video</h2>
+    <h2 id="was-ist-eine-vpn">Was ist eine VPN?</h2>
+<p>Eine der besten Möglichkeiten zum Sichern von Daten in und aus Ihrem Netzwerk könnte die Verwendung eines VPN sein.
+Es verschlüsselt den gesamten Online-Verkehr zwischen einem VPN-Server und einem Smartphone oder Laptop, um diese zu
+sichern. Dazu wird die Geräteidentität maskiert und eine sichere Verbindung hergestellt.
+Daher wird es für Hacker schwierig, auf vertraulichen Daten zuzugreifen</p>
+<h2 id="was-ist-pritunl">Was ist Pritunl?</h2>
+<p>Pritunl bietet ein effizientes VPN mit komplexen Gateway-Links und Site-to-Site-Links und ermöglicht
+Remotebenutzern den Zugriff auf lokale Netzwerke über OpenVPN und Wireguard. Die Konfiguration und
+Überwachung geschieht hierbei über eine leicht zu bedienende Weboberfläche.</p>
+<h2 id="was-ist-openvpn">Was ist OpenVPN?</h2>
+<p>OpenVPN ist eine freie Software zum Aufbau eines Virtuellen Privaten Netzwerkes über eine verschlüsselte
+TLS-Verbindung. Zur Verschlüsselung kann OpenSSL oder mbed TLS benutzt werden. OpenVPN verwendet wahlweise
+UDP oder TCP zum Transport</p>
+<h2 id="vorbereitungen-bei-proxmox-lxc-containern">Vorbereitungen bei Proxmox LXC Containern</h2>
+<p>Da OpenVPN zum Erstellen von Subnetzen auf die Linux Kernel Module TUN/TAP Zugreifen muss und diese bei LXC Container nicht freigegeben sind, müssen sie als Geräte simuliert werden. Dies bringt keine Nachteile mit sich, da nur zwei Ordner in &ldquo;/dev&rdquo; beim Systemstart erstellt werden müssen. In diesem Beispiel wird dafür Cron und ein kleines Shell Skript genutzt.</p>
+<p><strong>Cron Eintrag</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo crontab -e
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">@reboot sh /root/tun-tap.sh
+</code></pre></div><p><strong>Das Skript</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo nano  /root/tun-tap.sh
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">mkdir -p /dev/net
+mknod -m <span class="m">666</span> /dev/net/tun c <span class="m">10</span> <span class="m">200</span>
+</code></pre></div><p><strong>Neustarten um die Änderungen Anzuwenden</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo reboot
+</code></pre></div><h2 id="installation-von-pritunl-skript">Installation von Pritunl (Skript)</h2>
+<p>Zur Vereinfachung der Installation von Pritunl habe ich ein simples Shell Skript geschrieben welches dies vereinfacht. Einfach herunterladen und Ausführen!</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo wget https://macandmore.ts13.de/download/vpn-server/install.sh <span class="o">&amp;&amp;</span> bash install.sh
+</code></pre></div><h2 id="erhalten-der-zugangsdaten">Erhalten der Zugangsdaten</h2>
+<p>Zum Einrichten der Pritunl Instanz wird neben dem Passwort zur Anmeldung ein Setup-Key benötigt. Dieser lässt sich genauso wie das Passwort über folgende Befehle auf der Kommandozeile ausgeben.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo pritunl setup-key
+pritunl default-password
+</code></pre></div><h2 id="configuration-des-server">Configuration des Server</h2>
+<p>Nun müssen die unten aufgeführten Punkte in der web Oberfläche abgeändert werden. Da dies bei jeder Installation abweichen ist, verweise ich hier auf mein Video.</p>
+<ul>
+<li>Nutzname und Passwort ändern</li>
+<li>Public Address auf DDNS / Domain setzten</li>
+<li>Organisation erstellen</li>
+<li>Nutzer erstellen</li>
+<li>Server erstellen und der Organisation zuweisen</li>
+</ul>
+<h2 id="aufbauen-einer-vpn-verbindung">Aufbauen einer VPN-Verbindung</h2>
+<p>Nachdem der erstellte Server gestartet wurde, muss man zunächst die OpenVPN Datei des erstellten Benutzers herunterladen. Dies geschieht im Falle von Pritunl ebenfalls über die Weboberfläche. Als Download bekommt man nun eine ZIP-Datei ZIP, welche entpackt eine .ovpn und .crt Datei enthält. Die .ovpn Datei fungiert hierbei als Konfigurationsdatei welche nun beispielsweise in die OpenVPN Connect App am Smartphone importiert werden kann. Für den PC gibt es für Windows und Mac die Offizielle Connect App und für Linux entsprechende Module für den Netzwerkmanager.</p>
+<h2 id="youtube-video">YouTube Video</h2>
 <div class="video-wrapper">
     <iframe loading="lazy" 
-            src="https://www.youtube.com/embed/p1SKFSAkR5I" 
+            src="https://www.youtube.com/embed/LnxM7jPemsw" 
             allowfullscreen 
             title="YouTube Video"
     >
@@ -163,11 +187,13 @@ tar xfvz archiv.tar.gz
     
     <section class="article-tags">
         
-            <a href="/tags/gpg/">gpg</a>
+            <a href="/tags/vpn/">vpn</a>
         
             <a href="/tags/linux/">linux</a>
         
-            <a href="/tags/verschl%C3%BCsselung/">verschlüsselung</a>
+            <a href="/tags/proxmox/">proxmox</a>
+        
+            <a href="/tags/pritunl/">pritunl</a>
         
     </section>
 
@@ -222,11 +248,11 @@ tar xfvz archiv.tar.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/apache-webserver-absichern/">
+    <a href="/apache-webserver-absichern/">
         
         
             <div class="article-image">
-                <img src="/blog/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/apache-webserver-absichern/webserver.29e7d4a607e530c88e1928dc347235da_hu3d03a01dcc18bc5be0e67db3d8d209a6_2329900_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -244,11 +270,11 @@ tar xfvz archiv.tar.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/linux-deb-erstellen/">
+    <a href="/linux-deb-erstellen/">
         
         
             <div class="article-image">
-                <img src="/blog/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/linux-deb-erstellen/deb.3d351c271f621a9dfb0cc7ad429f227e_hu60a96b7f3159440906e26e7eaefee5fa_99585_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -266,11 +292,11 @@ tar xfvz archiv.tar.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/ssh-server-keys/">
+    <a href="/ssh-server-keys/">
         
         
             <div class="article-image">
-                <img src="/blog/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/ssh-server-keys/ssh.886637e9aaa2f98d4f2b91e37ccc4247_hud3eb19963e817ecba316b1d9e9c309db_221857_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -288,11 +314,33 @@ tar xfvz archiv.tar.gz
                 
                     
 <article class="has-image">
-    <a href="/blog/apt-repo/">
+    <a href="/linux-verschl%C3%BCsselung/">
         
         
             <div class="article-image">
-                <img src="/blog/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
+                <img src="/linux-verschl%C3%BCsselung/verschl%C3%BCsselung.696b79b0ae7c2fdd852f71533f88a05a_hu33d8f2710ea4928d295bd08cdc05f6eb_152928_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="linux-verschlüsselung" 
+                        data-hash="md5-aWt5sK58L92FL3FTP4igWg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux - Ordner Verschlüsseln</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/apt-repo/">
+        
+        
+            <div class="article-image">
+                <img src="/apt-repo/repository.4e5880feebed6b820bd24c4acd228fd1_hu3d03a01dcc18bc5be0e67db3d8d209a6_5958260_250x150_fill_q75_box_smart1.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy" 
@@ -304,28 +352,6 @@ tar xfvz archiv.tar.gz
 
         <div class="article-details">
             <h2 class="article-title">Eigenes Apt Repository erstellen</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="has-image">
-    <a href="/blog/vpn-server/">
-        
-        
-            <div class="article-image">
-                <img src="/blog/vpn-server/vpn.25b3d9bd728cf6438a58dff8905d0fbe_huf8067167d17c1f7664dc10bf6b473122_108156_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy" 
-                        data-key="vpn-server" 
-                        data-hash="md5-JbPZvXKM9kOKWN/4kF0Pvg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Pritunl - VPN im LXC Container</h2>
         </div>
     </a>
 </article>
@@ -455,12 +481,14 @@ tar xfvz archiv.tar.gz
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#was-wir-vorhaben">Was wir Vorhaben</a></li>
-    <li><a href="#was-ist-gpg">Was ist GPG</a></li>
-    <li><a href="#erforderliche-pakete-installieren">Erforderliche Pakete installieren</a></li>
-    <li><a href="#order-bzw-datien-archivieren">Order bzw. Datien archivieren</a></li>
-    <li><a href="#mit-gpg-verschlüsseln">Mit GPG verschlüsseln</a></li>
-    <li><a href="#entschlüsseln-und-archiv-entpacken">Entschlüsseln und Archiv entpacken</a></li>
+    <li><a href="#was-ist-eine-vpn">Was ist eine VPN?</a></li>
+    <li><a href="#was-ist-pritunl">Was ist Pritunl?</a></li>
+    <li><a href="#was-ist-openvpn">Was ist OpenVPN?</a></li>
+    <li><a href="#vorbereitungen-bei-proxmox-lxc-containern">Vorbereitungen bei Proxmox LXC Containern</a></li>
+    <li><a href="#installation-von-pritunl-skript">Installation von Pritunl (Skript)</a></li>
+    <li><a href="#erhalten-der-zugangsdaten">Erhalten der Zugangsdaten</a></li>
+    <li><a href="#configuration-des-server">Configuration des Server</a></li>
+    <li><a href="#aufbauen-einer-vpn-verbindung">Aufbauen einer VPN-Verbindung</a></li>
     <li><a href="#youtube-video">YouTube Video</a></li>
   </ol>
 </nav>
