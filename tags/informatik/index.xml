@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>informatik on MacAndMore</title>
-    <link>https://macandmore.ddnss.de/tags/informatik/</link>
+    <link>https://macandmore.ts13.de/tags/informatik/</link>
     <description>Recent content in informatik on MacAndMore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
-    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/informatik/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/tags/informatik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rechnen im Binärsystem</title>
-      <link>https://macandmore.ddnss.de/blog/grundrechenarten/</link>
+      <link>https://macandmore.ts13.de/blog/grundrechenarten/</link>
       <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/grundrechenarten/</guid>
+      <guid>https://macandmore.ts13.de/blog/grundrechenarten/</guid>
       <description>Einstieg Der Computer befindest sich ja bekannter maßen im binären Zahlensystem. Durch geladen (1) oder ungeladen (0) kann der Computer mithilfe von Transistoren diese Zustände darstellen. Bezüglich der Rechenoperation verhält sich dies analog zur schriftlichen Addition unter Beachtung der global geltenden Rechenregen. Wichtig hiebei zu beachten ist auch der fackt, dass der computer ausschließlich Addieren und so alle Rechenoperation bedienen kann.
 Addtion Die Addition von Binärzahlen gestaltet sie ähnlich wie die schriftliche Addition.</description>
     </item>
     
     <item>
       <title>Maßeinheiten der Informatik</title>
-      <link>https://macandmore.ddnss.de/blog/ma%C3%9Feinheiten-informatik/</link>
+      <link>https://macandmore.ts13.de/blog/ma%C3%9Feinheiten-informatik/</link>
       <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/ma%C3%9Feinheiten-informatik/</guid>
+      <guid>https://macandmore.ts13.de/blog/ma%C3%9Feinheiten-informatik/</guid>
       <description>Das Bit  Maßeinheit für den Informationsgehalt Steht für Binärziffer Ist die kleinste informationseinheit 1 Bit ist der Informationsgehalt, der in zwei gleich wahrscheinlichen Möglichkeiten enthalten ist. (true / false - 1 / 0 - An / Aus) Ist zurückzuführen auf Transistoren, welche geladen (1) oder ungeladen (0) sein können  Das Byte  Ist eine Maßeinheit der Digitaltechnik Ist die Folge aus mehreren (meistens 8) Bits Bilden die kleinsten Datentypen Bitbreite beschreibt die Größe der Folge der Bits (8 Bit, 16 Bit, 32 Bit, 64 Bit, 128 Bit, 256 Bit)  Bitwertigkeit Die Bitwertigkeit legt den Stellenwert eines einzelnen Bits im Bistmuster(Bitreihe) fest.</description>
     </item>
     
     <item>
       <title>Einstig in die Informatik</title>
-      <link>https://macandmore.ddnss.de/blog/einstig-informatik/</link>
+      <link>https://macandmore.ts13.de/blog/einstig-informatik/</link>
       <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/einstig-informatik/</guid>
+      <guid>https://macandmore.ts13.de/blog/einstig-informatik/</guid>
       <description>Was ist Informatik? Informatik ist eine Wissenschaft von der systematischen und oder automatischen Verarbeitung, Darstellung, Speicherung und Übertragung von Informationen mithilfe von Computern. Sie untersucht Verfahrensweisen und Methoden für die Verarbeitung von Informationen mithilfe von Algorithmen.
 Teilgebiete der Informatik Die Informatik untergliedert sich in 4 Teilbereiche, welche sich unterschiedlichen Themen und Tätigkeiten widmen.
 Angewandte Informatik  Anwendung von technischer, praktischer und theoretischer Informatik in anderen Wissenschafts und Gesellschaftsbereichen. Lösen alltäglicher informatischer Probleme Zusammentreffen von Software und Hardware Entwicklung  Technische Informatik  Untersuchung des funktioneller Aufbaus der Hardware logischer Entwurf von Rechentechnik maschinennahe Programmierung  Praktische Informatik  Formulierung von Algorithmen als Programme Betriebssysteme Steuerungssystemen Programmiersprachenentwicklung  Theoretische Informatik  Untersuchung und Darstellung der mathematischen Grundlagen der Informatik Abstraktion und Modellbildung Struktur, Verarbeitung, Übertragung und Wiedergabe von Informationen  Das EVA Prinzip EVA ist die Abkürzung für: Eingabe Verarbeitung Ausgabe.</description>
@@ -39,10 +39,10 @@ Angewandte Informatik  Anwendung von technischer, praktischer und theoretischer 
     
     <item>
       <title>Java Datentypen</title>
-      <link>https://macandmore.ddnss.de/blog/java-datentypen/</link>
+      <link>https://macandmore.ts13.de/blog/java-datentypen/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/java-datentypen/</guid>
+      <guid>https://macandmore.ts13.de/blog/java-datentypen/</guid>
       <description>Was sind Datentypen? Datentypen sind Kategorien von Daten. Der Computer stellt Daten in Bits mit 0 und 1 dar. Um dabei Buchstaben, ganze Zahlen, Fließkommazahlen usw. Unterscheiden zu können und die Anzahl der Bit Länge zu begrenzen, ist eine Einordnung notwendig. In Java werden Datentypen in Primitive und Komplexe unterteilt. Diesen Datentypen werden dann Variabeln angehängt, welche ihren Inhalt definieren. Variabeln können dann im weiteren Programmverlauf ausgelesen und verändert werden.</description>
     </item>
     

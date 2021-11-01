@@ -2,76 +2,76 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on MacAndMore</title>
-    <link>https://macandmore.ddnss.de/tags/linux/</link>
+    <link>https://macandmore.ts13.de/tags/linux/</link>
     <description>Recent content in linux on MacAndMore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
-    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apache Webserver Absichern</title>
-      <link>https://macandmore.ddnss.de/blog/apache-webserver-absichern/</link>
+      <link>https://macandmore.ts13.de/blog/apache-webserver-absichern/</link>
       <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/apache-webserver-absichern/</guid>
+      <guid>https://macandmore.ts13.de/blog/apache-webserver-absichern/</guid>
       <description>Achtung: Dieser Artikel richtet sich aufgrund seiner Komplexität an fortgeschrittene Linux Nutzer und Admins. Da dieser Artikel sehr umfangreich ist, wird es nicht möglich sein, alle Aspekte und schritte bis in das kleinste Detail zu erklären. So empfiehlt es sich bei Bedarf eigene Nachforschungen anzustellen.
  Was ist Apache? Apache ist eine Software, die auf einem Server ausgeführt wird. Beim Apache-Webserver handelt es sich um eine plattformübergreifende Software, die sowohl auf Unix/Linux wie auch auf Windows Servern ausgeführt werden kann.</description>
     </item>
     
     <item>
       <title>Linux eigenes DEB Package erstellen</title>
-      <link>https://macandmore.ddnss.de/blog/linux-deb-erstellen/</link>
+      <link>https://macandmore.ts13.de/blog/linux-deb-erstellen/</link>
       <pubDate>Sat, 24 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/linux-deb-erstellen/</guid>
+      <guid>https://macandmore.ts13.de/blog/linux-deb-erstellen/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SSH Server Absichern und Keys richtig Benutzen</title>
-      <link>https://macandmore.ddnss.de/blog/ssh-server-keys/</link>
+      <link>https://macandmore.ts13.de/blog/ssh-server-keys/</link>
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/ssh-server-keys/</guid>
+      <guid>https://macandmore.ts13.de/blog/ssh-server-keys/</guid>
       <description>Was ist SSH? SSH, auch bekannt als Secure Shell oder Secure Socket Shell, ist ein Netzwerkprotokoll, das Benutzern, insbesondere Systemadministratoren, eine sichere Möglichkeit bietet, über ein ungesichertes Netzwerk auf einen Computer zuzugreifen. Neben der Bereitstellung von sicheren Netzwerkdiensten bezieht sich SSH auf die Suite von Dienstprogrammen, die das SSH-Protokoll implementieren.
 Unser Ziel Unser Ziel wird es sein den viel benutzen SSH Dienst so sicher wie möglich zu konfigurieren und automatische sperren sowie DDOS bzw.</description>
     </item>
     
     <item>
       <title>Linux - Ordner Verschlüsseln</title>
-      <link>https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/</link>
+      <link>https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/linux-verschl%C3%BCsselung/</guid>
+      <guid>https://macandmore.ts13.de/blog/linux-verschl%C3%BCsselung/</guid>
       <description>Was wir Vorhaben Ich möchte euch in diesem Artikel zeigen, wie Ihr mittels GPG ganze order oder einzelne Dateien verschlüsseln und signieren könnte, sodass sie z.B beim Transfer von unbefugten Einblicken geschützt sind.
 Was ist GPG GPG ist ein Verschlüsselungssystem nach dem Public Key Verfahren. Es ist leider nicht zum S/MIME Verfahren kompatibel. Im Vergleich zu S/MIME gibt es auch keinerlei Zertifikatsstruktur und somit fehlt das &amp;ldquo;automatische&amp;rdquo; Vertrauenskonzept. Das Vertrauenskonzept &amp;ldquo;web of trust&amp;rdquo;, welches hinter GPG steht, ist leider nicht trivial und wird erst später erklärt.</description>
     </item>
     
     <item>
       <title>Eigenes Apt Repository erstellen</title>
-      <link>https://macandmore.ddnss.de/blog/apt-repo/</link>
+      <link>https://macandmore.ts13.de/blog/apt-repo/</link>
       <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/apt-repo/</guid>
+      <guid>https://macandmore.ts13.de/blog/apt-repo/</guid>
       <description>Was ist Apt bzw. ein Apt Repository? Ursprünglich für Debian entwickelt, ist das Advanced Packaging Tool APT auch heute noch für GNU/Linux ein extrem nützliches Werkzeug. Der Paketmanager dient zur Paketverwaltung, sprich zur Suche, Aktualisierung und Installation von Programmpaketen. Diese Pakete (.deb) Können Lokal oder über einen HTTP bzw. FTP Server bereitgestellt werden. Diese Bereitstellung greift auf eine Datenbank Struktur zurück, wodurch sich der begriff Apt Repository ergibt.
 Erforderliche Pakete installieren Zum Bereitstellen der Datenstruktur werden wir den Webserver Apache2 Verwenden zwar wäre FTP auch denkbar, jedoch bietet Apache das Beste maß an Sicherheit, Geschwindigkeit und Konfiguration.</description>
     </item>
     
     <item>
       <title>Pritunl - VPN im LXC Container</title>
-      <link>https://macandmore.ddnss.de/blog/vpn-server/</link>
+      <link>https://macandmore.ts13.de/blog/vpn-server/</link>
       <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/vpn-server/</guid>
+      <guid>https://macandmore.ts13.de/blog/vpn-server/</guid>
       <description>Was ist eine VPN? Eine der besten Möglichkeiten zum Sichern von Daten in und aus Ihrem Netzwerk könnte die Verwendung eines VPN sein. Es verschlüsselt den gesamten Online-Verkehr zwischen einem VPN-Server und einem Smartphone oder Laptop, um diese zu sichern. Dazu wird die Geräteidentität maskiert und eine sichere Verbindung hergestellt. Daher wird es für Hacker schwierig, auf vertraulichen Daten zuzugreifen
 Was ist Pritunl? Pritunl bietet ein effizientes VPN mit komplexen Gateway-Links und Site-to-Site-Links und ermöglicht Remotebenutzern den Zugriff auf lokale Netzwerke über OpenVPN und Wireguard.</description>
     </item>
     
     <item>
       <title>PXE Multioboot Server</title>
-      <link>https://macandmore.ddnss.de/blog/pxe-server/</link>
+      <link>https://macandmore.ts13.de/blog/pxe-server/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/pxe-server/</guid>
+      <guid>https://macandmore.ts13.de/blog/pxe-server/</guid>
       <description>Was ist PXE? PXE ist ein Verfahren von Intel, um Computer einen netzwerkbasierten Startvorgang zu ermöglichen. Damit ist gemeint, dass ein Computer nicht das Betriebssystem von der Festplatte lädt, sondern aus dem Netzwerk. PXE fasst verschiedene Verfahren zusammen, um einen Computer übers Netzwerk zu Booten. Früher brauchte man noch für jede Netzwerkkarte einen eigenen Treiber, damit das gelang. PXE bringt die notwendigen Funktionen mit. Es ist eine Erweiterung für eine normierte Schnittstelle für Netzwerkzugriffe.</description>
     </item>
     

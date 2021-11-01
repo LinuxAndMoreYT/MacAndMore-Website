@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on MacAndMore</title>
-    <link>https://macandmore.ddnss.de/tags/java/</link>
+    <link>https://macandmore.ts13.de/tags/java/</link>
     <description>Recent content in java on MacAndMore</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
-    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ddnss.de/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://macandmore.ts13.de/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java Datentypen</title>
-      <link>https://macandmore.ddnss.de/blog/java-datentypen/</link>
+      <link>https://macandmore.ts13.de/blog/java-datentypen/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://macandmore.ddnss.de/blog/java-datentypen/</guid>
+      <guid>https://macandmore.ts13.de/blog/java-datentypen/</guid>
       <description>Was sind Datentypen? Datentypen sind Kategorien von Daten. Der Computer stellt Daten in Bits mit 0 und 1 dar. Um dabei Buchstaben, ganze Zahlen, Fließkommazahlen usw. Unterscheiden zu können und die Anzahl der Bit Länge zu begrenzen, ist eine Einordnung notwendig. In Java werden Datentypen in Primitive und Komplexe unterteilt. Diesen Datentypen werden dann Variabeln angehängt, welche ihren Inhalt definieren. Variabeln können dann im weiteren Programmverlauf ausgelesen und verändert werden.</description>
     </item>
     
