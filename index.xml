@@ -979,8 +979,8 @@ TraceEnable Off
 Mod Security bietet eine Regelkonfigurationssprache namens „SecRules“ für die Echtzeitüberwachung, Protokollierung und Filterung basierend auf benutzerdefinierten Regeln. Es wird industrieweit zum Schutz von Web-Apps und Co eingesetzt und ist daher essenziell.&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/apache-mod-security.jpg&#34; &gt;
-		&lt;img src=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/apache-mod-security.jpg&#34;
+	&lt;a href=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/apache-mod-security.jpg&#34; &gt;
+		&lt;img src=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/apache-mod-security.jpg&#34;
 			
 			
 			
@@ -1009,8 +1009,8 @@ Mod Security bietet eine Regelkonfigurationssprache namens „SecRules“ für d
 &lt;p&gt;Mod Evasive ist ein Modul, welches ähnlich einem Intrusion Prevention System (IPS) Muster eines möglichen Angriffs im Netzwerk erkennt. Dieses Modul konzentriert sich auf Denial of Service (DoS) über das Protokoll HTTP, DDoS und Brute-Force-Attacken. Erkennt dieses Modul einen Angriff über eine IP-Addresse, so wird diese zeitbegrenzt auf allen Ports gesperrt.&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/apache-mod-evasive.jpg&#34; &gt;
-		&lt;img src=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/apache-mod-evasive.jpg&#34;
+	&lt;a href=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/apache-mod-evasive.jpg&#34; &gt;
+		&lt;img src=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/apache-mod-evasive.jpg&#34;
 			
 			
 			
@@ -1196,8 +1196,8 @@ SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
     &gt;&lt;strong&gt;Zum Tester&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/ssl-tester.jpg&#34; &gt;
-		&lt;img src=&#34;https://macandmore.ddnss.de/blog/apache-webserver-absichern/ssl-tester.jpg&#34;
+	&lt;a href=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/ssl-tester.jpg&#34; &gt;
+		&lt;img src=&#34;https://macandmore.ts13.de/blog/apache-webserver-absichern/ssl-tester.jpg&#34;
 			
 			
 			
@@ -1622,7 +1622,7 @@ mknod -m &lt;span class=&#34;m&#34;&gt;666&lt;/span&gt; /dev/net/tun c &lt;span 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo reboot
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;installation-von-pritunl-skript&#34;&gt;Installation von Pritunl (Skript)&lt;/h2&gt;
 &lt;p&gt;Zur Vereinfachung der Installation von Pritunl habe ich ein simples Shell Skript geschrieben welches dies vereinfacht. Einfach herunterladen und Ausführen!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo wget https://macandmore.ddnss.de/download/vpn-server/install.sh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash install.sh
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo wget https://macandmore.ts13.de/download/vpn-server/install.sh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash install.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;erhalten-der-zugangsdaten&#34;&gt;Erhalten der Zugangsdaten&lt;/h2&gt;
 &lt;p&gt;Zum Einrichten der Pritunl Instanz wird neben dem Passwort zur Anmeldung ein Setup-Key benötigt. Dieser lässt sich genauso wie das Passwort über folgende Befehle auf der Kommandozeile ausgeben.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo pritunl setup-key

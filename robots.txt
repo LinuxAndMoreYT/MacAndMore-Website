@@ -1,4 +1,4 @@
-# robots.txt zu https://macandmore.ddnss.de
+# robots.txt zu https://macandmore.ts13.de
 
 User-agent: UniversalRobot/1.0
 User-agent: Robot
@@ -6,4 +6,4 @@ User-agent: Robot
 User-agent: *
 Allow: *
 
-Sitemap: https://macandmore.ddnss.de/sitemap.xml
+Sitemap: https://macandmore.ts13.de/sitemap.xml
